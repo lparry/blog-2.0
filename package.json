@@ -60,6 +60,7 @@
     "lint": "eslint src tools test",
     "lintfix": "eslint --fix src tools test",
     "test": "npm run lint && mocha --compilers js:babel/register",
+    "transpile": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/transpileMarkdown').default().catch(err => console.log(err.stack))\"",
     "clean": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/clean').default().catch(err => console.log(err.stack))\"",
     "build": "babel-node --eval \"require('babel-register');require('babel-polyfill');(require('./tools/build').default()).catch(err => console.log(err.stack))\"",
     "start": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/start').default().catch(err => console.log(err.stack))\"",
