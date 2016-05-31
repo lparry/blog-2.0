@@ -6,7 +6,6 @@
 
 import glob from "glob"
 import { join } from "path"
-import { legacyBlogUrl, legacyBlogPath } from "../../lib/legacyBlogStuff"
 
 module.exports = function routesLoader(source) {
   this.cacheable()

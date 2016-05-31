@@ -11,7 +11,6 @@ import ReactDOM from "react-dom/server"
 import Html from "../components/Html"
 import task from "./lib/task"
 import fs from "./lib/fs"
-import { legacyBlogUrl, legacyBlogPath } from "../lib/legacyBlogStuff"
 
 const DEBUG = !process.argv.includes("release")
 
@@ -22,13 +21,20 @@ function getPages() {
         reject(err)
       } else {
         const result = files.map(file => {
-          let path = `/${file.substr(0, file.lastIndexOf("."))}`
-          if (path === "/index") {
-            path = "/"
-          } else if (path.endsWith("/index")) {
-            path = path.substr(0, path.lastIndexOf("/index"))
-          } else if (legacyBlogPath(path)) {
-            path = legacyBlogUrl(path)
+          let path
+          let metadata
+          path = `/${file.substr(0, file.lastIndexOf("."))}`
+          if (file.match(/\d{4,4}-\d\d-\d\d-/)) {
+            metadata = require(`../pages/${file}`).metadata
+          }
+          if (metadata) {
+            path = `${metadata.canonicalPath}/`
+          } else {
+            if (path === "/index") {
+              path = "/"
+            } else if (path.endsWith("/index")) {
+              path = path.substr(0, path.lastIndexOf("/index"))
+            }
           }
           return { path, file }
         })
