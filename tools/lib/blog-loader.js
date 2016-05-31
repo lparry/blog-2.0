@@ -5,6 +5,8 @@
  */
 
 import glob from "glob"
+import sortBy from "lodash.sortby"
+import reverse from "lodash.reverse"
 import { join } from "path"
 
 module.exports = function blogLoader(source) {
@@ -21,13 +23,17 @@ module.exports = function blogLoader(source) {
       return callback(err)
     }
 
-    const pagesData = files.map(file => {
-      const metadata = require(`../../pages/blog/${file}`).metadata
+    const pagesData = reverse(sortBy(files.map(file => {
+      const page = require(`../../pages/blog/${file}`)
+      const metadata = page.metadata
       return {
+        date: metadata.date,
+        file,
         path: metadata.canonicalPath,
+        tags: metadata.tags,
         title: metadata.title,
       }
-    })
+    }), obj => new Date(obj.date)))
 
 
     if (pagesData.length) {

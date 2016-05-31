@@ -23,8 +23,11 @@ export default () => (
   <div>
     <h1>LucasTheNomad.com</h1>
     {
-      blogPages.map(({ path, title }, index) => (
-        <BlogLink key={index} path={path}>{title}</BlogLink>
+      blogPages.map(({ file, path, title }, index) => (
+        <div>
+          <BlogLink key={index} path={path}>{title}</BlogLink>
+          {require(`./blog/${file}`).intro}
+        </div>
       ))
     }
   </div>
