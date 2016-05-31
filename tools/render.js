@@ -28,7 +28,7 @@ function getPages() {
             metadata = require(`../pages/${file}`).metadata
           }
           if (metadata) {
-            path = `${metadata.canonicalPath}/`
+            path = metadata.canonicalPath
           } else {
             if (path === "/index") {
               path = "/"

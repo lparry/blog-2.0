@@ -30,7 +30,7 @@ module.exports = function routesLoader(source) {
       }
 
       if (metadata) {
-        path = `${metadata.canonicalPath}/`
+        path = metadata.canonicalPath
       } else {
         path = `/${file}`
 
