@@ -29,7 +29,7 @@ class Link extends Component {
     let allowTransition = true;
     let clickResult;
 
-    if (this.props && this.props.onClick) {
+    if (this && this.props && this.props.onClick) {
       clickResult = this.props.onClick(event);
     }
 
@@ -44,10 +44,18 @@ class Link extends Component {
     event.preventDefault();
 
     if (allowTransition) {
-      const link = event.currentTarget;
-      Location.pushState(
-        this.props && this.props.state || null,
-        this.props && this.props.to || (link.pathname + link.search));
+      const link = event.currentTarget
+      if (this && this.props) {
+        Location.push({
+          pathname: this.props.to,
+          search: this.props.state,
+        })
+      } else {
+        Location.push({
+          pathname: link.pathname,
+          search: link.search,
+        })
+      }
     }
   };
 
