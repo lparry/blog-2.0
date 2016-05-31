@@ -7,8 +7,7 @@ const BlogLink = (props) => (
   </p>
 )
 BlogLink.propTypes = {
-  path: PropTypes.string.required,
-  children: PropTypes.element.required,
+  path: PropTypes.string.isRequired,
 }
 
 export default BlogLink
