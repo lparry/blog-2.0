@@ -14,7 +14,7 @@ import Layout from "./components/Layout"
 const routes = {} // Auto-generated on build. See tools/lib/routes-loader.js
 
 const route = async (path, callback) => {
-  const handler = routes[path] || routes["/404"]
+  const handler = routes[path] || routes[path.replace(/\/$/, "")] || routes["/404"]
   const component = await handler()
   await callback(<Layout>{React.createElement(component)}</Layout>)
 }
