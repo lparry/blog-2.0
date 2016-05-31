@@ -54,7 +54,7 @@ module.exports = function routesLoader(source) {
       }
 
       if (!path.match(/\/$/)) { path = `${path}/` }
-      return `'${path}': () => new Promise(resolve => require(['./pages/${file}'], resolve)).default,` // eslint-disable-line max-len
+      return `'${path}': () => new Promise(resolve => require(['./pages/${file}'], resolve)).then(x => x.default).catch(() => null),` // eslint-disable-line max-len
     })
 
     if (lines.length) {
