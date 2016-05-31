@@ -16,7 +16,7 @@ module.exports = function blogLoader(source) {
 
   const paginationPage = path.basename(this.resource, ".jsx")
   const paginationPageNo = paginationPage === "index" ? 1 : parseInt(paginationPage, 10)
-  const perPage = 10
+  const perPage = 5
 
   if (target === "node") {
     source = source.replace("import 'babel/polyfill';", "") // eslint-disable-line no-param-reassign

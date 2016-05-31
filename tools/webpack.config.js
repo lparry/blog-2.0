@@ -74,6 +74,10 @@ const config = {
         test: /[\\\/]pages\/index\.jsx?$/,
         loader: path.join(__dirname, "./lib/paginated-blog-intro-loader.js"),
       },
+      {
+        test: /[\\\/]pages\/page\/\d+\.jsx?$/,
+        loader: path.join(__dirname, "./lib/paginated-blog-intro-loader.js"),
+      },
       // {
       //   test: /[\\\/]pages\/blog(\/.*)?\.jsx?$/,
       //   loader: path.join(__dirname, "./lib/blog-loader.js"),
