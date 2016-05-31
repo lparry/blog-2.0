@@ -21,28 +21,16 @@ module.exports = function blogLoader(source) {
       return callback(err)
     }
 
-    const pages = files.map(file => {
-      let path = file
-
-      if (path.endsWith(".js")) {
-        path = path.substr(0, path.length - 3)
-      } else if (path.endsWith(".jsx")) {
-        path = path.substr(0, path.length - 4)
-      } else if (path.endsWith(".markdown")) {
-        path = path.substr(0, path.length - 9)
+    const pagesData = files.map(file => {
+      const metadata = require(`../../pages/blog/${file}`).metadata
+      return {
+        path: metadata.canonicalPath,
+        title: metadata.title,
       }
-      return path
     })
 
 
-    if (pages.length) {
-      const pagesData = pages.map(page => (
-        {
-          page,
-          title: page,
-        }
-      )
-      )
+    if (pagesData.length) {
       return callback(null,
                       source.replace(" blogPages = []",
                                      (` blogPages = ${JSON.stringify(pagesData)}`)))

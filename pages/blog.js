@@ -10,7 +10,7 @@ import Link from "../components/Link"
 const BlogLink = (props) => {
   return (
     <p>
-      <a onClick={Link.handleClick} href={`/blog/${props.page}`}>{props.children}</a>
+      <a onClick={Link.handleClick} href={props.path}>{props.children}</a>
     </p>
   )
 }
@@ -24,11 +24,9 @@ export default class extends Component {
         <h1>Blog</h1>
         <p>Coming soon.</p>
          {
-           this.blogPages.map(({page, title}, index) => {
-             return (
-               <BlogLink key={index} page={page}>{title}</BlogLink>
-             )
-           })
+           this.blogPages.map(({ path, title }, index) => (
+             <BlogLink key={index} path={path}>{title}</BlogLink>
+           ))
          }
       </div>
     )

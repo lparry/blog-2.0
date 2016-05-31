@@ -23,30 +23,38 @@ module.exports = function routesLoader(source) {
     }
 
     const lines = files.map(file => {
-      let path = `/${file}`
+      let path
+      let metadata
 
-      if (path === "/index.js" || path === "/index.jsx") {
-        path = "/"
-      } else if (path.endsWith("/index.js")) {
-        path = path.substr(0, path.length - 9)
-      } else if (path.endsWith("/index.jsx")) {
-        path = path.substr(0, path.length - 10)
-      } else if (path.endsWith(".js")) {
-        path = path.substr(0, path.length - 3)
-      } else if (path.endsWith(".markdown")) {
-        path = path.substr(0, path.length - 9)
-      } else if (path.endsWith(".jsx")) {
-        path = path.substr(0, path.length - 4)
+      if (file.match(/\d{4,4}-\d\d-\d\d-/)) {
+        metadata = require(`../../pages/${file}`).metadata
       }
 
-      if (legacyBlogPath(path)) {
-        path = legacyBlogUrl(path)
+      if (metadata) {
+        path = `${metadata.canonicalPath}/`
+      } else {
+        path = `/${file}`
+
+        if (path === "/index.js" || path === "/index.jsx") {
+          path = "/"
+        } else if (path.endsWith("/index.js")) {
+          path = path.substr(0, path.length - 9)
+        } else if (path.endsWith("/index.jsx")) {
+          path = path.substr(0, path.length - 10)
+        } else if (path.endsWith(".js")) {
+          path = path.substr(0, path.length - 3)
+        } else if (path.endsWith(".markdown")) {
+          path = path.substr(0, path.length - 9)
+        } else if (path.endsWith(".jsx")) {
+          path = path.substr(0, path.length - 4)
+        }
       }
 
       if (target === "node" || path === "/404" || path === "/500") {
         return `  '${path}': () => require('./pages/${file}').default,`
       }
 
+      if (!path.match(/\/$/)) { path = `${path}/` }
       return `'${path}': () => new Promise(resolve => require(['./pages/${file}'], resolve)).default,` // eslint-disable-line max-len
     })
 
