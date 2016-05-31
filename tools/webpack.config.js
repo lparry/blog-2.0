@@ -25,7 +25,7 @@ const AUTOPREFIXER_BROWSERS = [
   "Safari >= 7.1",
 ]
 const JS_LOADER = {
-  test: /\.(jsx?|markdown)$/,
+  test: /\.jsx?$/,
   include: [
     path.resolve(__dirname, "../components"),
     path.resolve(__dirname, "../core"),

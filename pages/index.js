@@ -4,18 +4,8 @@
  * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
  */
 
-import React, { PropTypes } from "react"
-import Link from "../components/Link"
-
-const BlogLink = (props) => (
-  <p>
-    <a onClick={Link.handleClick} href={props.path}>{props.children}</a>
-  </p>
-)
-BlogLink.propTypes = {
-  path: PropTypes.string.required,
-  children: PropTypes.element.required,
-}
+import React from "react"
+import BlogLink from "../components/BlogLink"
 
 const blogPages = []
 
