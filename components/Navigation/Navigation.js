@@ -21,7 +21,6 @@ function Navigation() {
     <ul className="Navigation" role="menu">
       <NavLink href="/">Home</NavLink>
       <NavLink href="/about">About</NavLink>
-      <NavLink href="/blog">Blog</NavLink>
     </ul>
   );
 }

@@ -4,20 +4,28 @@
  * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
  */
 
-import React, { Component } from 'react';
+import React, { PropTypes } from "react"
 import Link from "../components/Link"
 
-export default class extends Component {
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>Coming soon.</p>
-        <a onClick={Link.handleClick} href="/2013/09/30/serengeti-national-park-and-the-ngorongoro-crater">test</a>
-
-      </div>
-    );
-  }
-
+const BlogLink = (props) => (
+  <p>
+    <a onClick={Link.handleClick} href={props.path}>{props.children}</a>
+  </p>
+)
+BlogLink.propTypes = {
+  path: PropTypes.string.required,
+  children: PropTypes.element.required,
 }
+
+const blogPages = []
+
+export default () => (
+  <div>
+    <h1>LucasTheNomad.com</h1>
+    {
+      blogPages.map(({ path, title }, index) => (
+        <BlogLink key={index} path={path}>{title}</BlogLink>
+      ))
+    }
+  </div>
+  )
