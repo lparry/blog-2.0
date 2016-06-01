@@ -40,12 +40,22 @@ module.exports = function blogLoader(source) {
     }), obj => new Date(obj.date)))
 
     const paginationPages = pagesData.slice((paginationPageNo - 1) * perPage, paginationPageNo * perPage)
+    const lastPageNo = Math.ceil(pagesData.length / perPage)
+    const nextPage = paginationPageNo < lastPageNo ? `/page/${paginationPageNo + 1}` : null
+    const previousPage = paginationPageNo > 3 ? `/page/${paginationPageNo - 1}` :
+        (paginationPageNo === 2 ? "/" : null)
 
+    const pageData = {
+      blogPosts: paginationPages,
+      pageNo: paginationPageNo,
+      nextPage,
+      previousPage,
+      lastPageNo,
+    }
 
     if (pagesData.length) {
       return callback(null,
-                      source.replace(" blogPages = []",
-                                     (` blogPages = ${JSON.stringify(paginationPages)}`)))
+                      source.replace(" pageData = {}", ` pageData = ${JSON.stringify(pageData)}`))
     }
 
     return callback(new Error("Cannot find any blog pages."))
