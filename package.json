@@ -26,6 +26,9 @@
     "flickrapi": "^0.4.2",
     "git-repository": "^0.1.1",
     "glob": "^7.0.3",
+    "gulp": "^3.9.1",
+    "gulp-responsive": "^2.4.0",
+    "gulp-rev": "^7.0.0",
     "history": "^2.1.1",
     "hygienist-middleware": "^0.1.0",
     "install": "^0.7.3",
@@ -60,6 +63,7 @@
   "scripts": {
     "lint": "eslint src tools test",
     "lintfix": "eslint --fix src tools test",
+    "gulp": "gulp",
     "test": "npm run lint && mocha --compilers js:babel/register",
     "transpile": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/transpileMarkdown').default().catch(err => console.log(err.stack))\"",
     "clean": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/clean').default().catch(err => console.log(err.stack))\"",

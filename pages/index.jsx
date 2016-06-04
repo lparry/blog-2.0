@@ -11,7 +11,6 @@ import Link from "../components/Link"
 const pageData = {}
 
 export default () => {
-  console.log(pageData)
   return (
   <div>
     <h1>LucasTheNomad.com</h1>

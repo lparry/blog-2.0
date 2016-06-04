@@ -47,6 +47,7 @@ function lookupPhoto(id) {
 }
 
 export const cachePath = (id) => path.resolve(`cache/flickr/${id.slice(0, 2)}/${id}.jpg`)
+export const cacheUrl = (id) => `/cache/flickr/${id.slice(0, 2)}/${id}.jpg`
 
 const largestSize = sizes => (
   sizes.Original ||
@@ -80,6 +81,6 @@ export default function getImageData(id) {
    .then(size => ({
      height: size.height,
      width: size.width,
-     source: cachePath(id),
+     source: cacheUrl(id),
    }))
 }

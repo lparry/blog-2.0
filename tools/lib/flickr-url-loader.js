@@ -13,7 +13,7 @@ module.exports = function flickrUrlLoader(source) {
 
   replaceAsync(source, /(<FlickrImageLegacy .*)flickrID="([0-9]+)" ([^>]+>)/g, (_, start, id, end) => (
     flickrPhotoUrlLookup(id).then(data => (
-      `${start} height={${parseInt(data.height / 2, 10)}} width={${parseInt(data.width / 2, 10)}} src="${data.source}" ${end}`
+      `${start} height={${parseInt(data.height / 2, 10)}} flickrID="${id}" width={${parseInt(data.width / 2, 10)}} src="${data.source}" ${end}`
     ))
   ))
   .then(result => callback(null, result))

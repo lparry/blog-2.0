@@ -13,7 +13,6 @@ module.exports = function oldLegacyPathsLoader(source) {
   const target = this.target
   const callback = this.async()
 
-  console.log(source)
   if (target === "node") {
     source = source.replace("import 'babel/polyfill';", "") // eslint-disable-line no-param-reassign
   }
