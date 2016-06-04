@@ -1,6 +1,11 @@
 import Flickr from "flickrapi"
 import Promise from "bluebird"
 import fs from "fs"
+import childProcess from "child_process"
+import path from "path"
+
+Promise.promisifyAll(fs)
+Promise.promisifyAll(Flickr)
 
 const flickrOptions = {
   api_key: process.env.FLICKR_API_KEY,
@@ -10,22 +15,30 @@ const flickrOptions = {
   access_token_secret: process.env.FLICKR_ACCESS_TOKEN_SECRET,
 }
 
+function flickrDataFromDisk(id) {
+  return fs.readFileAsync(path.resolve(__dirname, `../../flickr-data/${id}.json`))
+    .then(data => JSON.parse(data))
+    .catch(err => console.error(err))
+}
+
+function objectifySizeArray(sizeArray) {
+  return sizeArray.reduce((memo, val) => {
+    memo[val.label] = val // eslint-disable-line no-param-reassign
+    return memo
+  }, {})
+}
+
 function lookupPhoto(id) {
   const filename = `flickr-data/${id}.json`
-  if (fs.existsSync(filename)) {
-    return Promise.promisify(fs.readFile)(filename)
-      .then(data => JSON.parse(data))
-      .catch(err => console.error(err))
-  }
+  if (fs.existsSync(filename)) return flickrDataFromDisk(id)
 
-  return Promise.promisify(Flickr.tokenOnly)(flickrOptions)
+  return Flickr.tokenOnlyAsync(flickrOptions)
     .then(flickr => (
-      Promise.promisify(flickr.photos.getSizes)({ photo_id: id })
+      flickr.photos.getSizesAsync({ photo_id: id })
         .then(result => result.sizes.size)
-        .then(sizeArray => sizeArray.reduce((memo, val) => { memo[val.label] = val; return memo }, {})) // eslint-disable-line no-param-reassign
+        .then(objectifySizeArray)
         .then(sizes => {
-          Promise.promisify(fs.writeFile)(filename, JSON.stringify(sizes, null, 2))
-            .catch(err => console.error(err))
+          fs.writeFileAsync(filename, JSON.stringify(sizes, null, 2)).catch(err => console.error(err))
           return sizes
         })
         .catch(err => console.error(err))
@@ -33,18 +46,40 @@ function lookupPhoto(id) {
   )
 }
 
+export const cachePath = (id) => path.resolve(`cache/flickr/${id.slice(0, 2)}/${id}.jpg`)
+
+const largestSize = sizes => (
+  sizes.Original ||
+  sizes["Large 2048"] ||
+  sizes["Large 1600"] ||
+  sizes.Large ||
+  sizes["Medium 800"] ||
+  sizes["Medium 640"] ||
+  sizes.Medium
+)
+
+async function download(url, output) {
+  childProcess.execSync(`curl --silent --create-dirs --compressed --output ${output} ${url}`)
+  console.log(`downloaded ${output}`)
+}
+
+function cacheImg(id) {
+  const outputPath = cachePath(id)
+  if (fs.existsSync(outputPath)) return Promise.resolve()
+
+  return flickrDataFromDisk(id)
+    .then(largestSize)
+    .then(size => size.source)
+    .then(url => download(url, outputPath))
+}
+
 export default function getImageData(id) {
+  cacheImg(id)
   return lookupPhoto(id)
-    .then(sizes => sizes["Large 1600"] ||
-                   sizes.Large ||
-                   sizes["Medium 800"] ||
-                   sizes["Medium 640"] ||
-                   sizes.Medium)
-    .then(size => (
-      {
-        height: size.height,
-        width: size.width,
-        source: size.source,
-      }
-    ))
+   .then(largestSize)
+   .then(size => ({
+     height: size.height,
+     width: size.width,
+     source: cachePath(id),
+   }))
 }
