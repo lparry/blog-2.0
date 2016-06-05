@@ -4,16 +4,16 @@
  * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
  */
 
-import React, { Component, PropTypes } from 'react';
-import './Link.scss';
-import Location from '../../core/Location';
+import React, { Component, PropTypes } from "react"
+import "./Link.scss"
+import Location from "../../core/Location"
 
 function isLeftClickEvent(event) {
-  return event.button === 0;
+  return event.button === 0
 }
 
 function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 }
 
 class Link extends Component {
@@ -26,22 +26,22 @@ class Link extends Component {
   };
 
   static handleClick = event => {
-    let allowTransition = true;
-    let clickResult;
+    let allowTransition = true
+    let clickResult
 
     if (this && this.props && this.props.onClick) {
-      clickResult = this.props.onClick(event);
+      clickResult = this.props.onClick(event)
     }
 
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
-      return;
+      return
     }
 
     if (clickResult === false || event.defaultPrevented === true) {
-      allowTransition = false;
+      allowTransition = false
     }
 
-    event.preventDefault();
+    event.preventDefault()
 
     if (allowTransition) {
       const link = event.currentTarget
@@ -60,10 +60,10 @@ class Link extends Component {
   };
 
   render() {
-    const { to, children, ...props } = this.props;
-    return <a {...props} onClick={Link.handleClick.bind(this)}>{children}</a>;
+    const { to, children, ...props } = this.props
+    return <a {...props} onClick={Link.handleClick.bind(this)}>{children}</a>
   }
 
 }
 
-export default Link;
+export default Link

@@ -4,9 +4,9 @@
  * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
  */
 
-import React from 'react';
-import './Navigation.scss';
-import Link from '../Link';
+import React from "react"
+import "./Navigation.scss"
+import Link from "../Link"
 
 const NavLink = ({ href, children }) => {
   return (
@@ -18,11 +18,14 @@ const NavLink = ({ href, children }) => {
 
 function Navigation() {
   return (
-    <ul className="Navigation" role="menu">
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/about">About</NavLink>
-    </ul>
-  );
+    <div>
+      <h1 className="header">Lucas The Nomad</h1>
+      <ul className="Navigation" role="menu">
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/about">About</NavLink>
+      </ul>
+    </div>
+  )
 }
 
-export default Navigation;
+export default Navigation

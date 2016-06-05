@@ -11,6 +11,10 @@ import postcssImport from "postcss-import"
 import precss from "precss"
 import autoprefixer from "autoprefixer"
 
+// sometimes babel is retarded and tries to import css instead of letting webpack do it
+require.extensions[".scss"] = () => undefined
+require.extensions[".css"] = () => undefined
+
 const DEBUG = !process.argv.includes("release")
 const VERBOSE = process.argv.includes("verbose")
 const WATCH = global.watch

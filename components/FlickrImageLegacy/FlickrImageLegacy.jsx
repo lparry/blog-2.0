@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
-import flickrManifest from "../flickr_manifest.json"
+import flickrManifest from "../../flickr_manifest.json"
+import "./FlickrImageLegacy.scss"
 
 const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
   if (!flickrID) return <p>broken image</p>
@@ -7,22 +8,32 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
   const baseImg = `${flickrID.slice(0, 2)}/${flickrID}`
   // const jpg = `${baseImg}.jpg`
   // const jpgR = `${baseImg}@2x.jpg`
+  const webpTinyKey = `${baseImg}-tiny.webp`
+  const webpTinyRetinaKey = `${baseImg}-tiny@2x.webp`
   const webpKey = `${baseImg}.webp`
   const webpSmallKey = `${baseImg}-small.webp`
   const webpRetinaKey = `${baseImg}@2x.webp`
+  const webpTinyUrl = `/assets/flickr/${flickrManifest[webpTinyKey]}`
+  const webpTinyRetinaUrl = `/assets/flickr/${flickrManifest[webpTinyRetinaKey]}`
   const webpUrl = `/assets/flickr/${flickrManifest[webpKey]}`
   const webpSmallUrl = `/assets/flickr/${flickrManifest[webpSmallKey]}`
   const webpRetinaUrl = `/assets/flickr/${flickrManifest[webpRetinaKey]}`
   return (
-    <div>
+    <div className="flickrImage">
       <a href={linkUrl}>
         <img
-          src={webpSmallUrl}
+          src={webpTinyUrl}
           type="image/webp"
-          srcSet={`${webpRetinaUrl} 2x, ${webpUrl} 1x`}
-          // sizes="(min-width: 36em) 33.3vw, 100vw"
-          width="1024px"
-          height={`${parseInt(height * scaleRatio, 10)}px`}
+          srcSet={`
+            ${webpTinyUrl} 350w,
+            ${webpSmallUrl} 512w,
+            ${webpTinyRetinaUrl} 700w,
+            ${webpUrl} 1024w,
+            ${webpRetinaUrl} 2048w,
+            `}
+          sizes="(max-width: 1024px) 80vw, 80vw" // , calc(100vw - 50px)"
+          // width="1024px"
+          // height={`${parseInt(height * scaleRatio, 10)}px`}
           alt={caption}
         />
       </a>

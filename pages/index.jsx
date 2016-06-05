@@ -13,7 +13,6 @@ const pageData = {}
 export default () => {
   return (
   <div>
-    <h1>LucasTheNomad.com</h1>
     {
       pageData.blogPosts && pageData.blogPosts.map(({ file, path, title }, index) => (
         <div key={index}>

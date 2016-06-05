@@ -21,6 +21,18 @@ gulp.task("default", () => {
           // },
           {
             format: "webp",
+            width: 350,
+            quality: 90,
+            rename: { suffix: "-tiny", extname: ".webp" },
+          },
+          {
+            format: "webp",
+            width: 700,
+            quality: 90,
+            rename: { suffix: "-tiny@2x", extname: ".webp" },
+          },
+          {
+            format: "webp",
             width: 512,
             quality: 90,
             rename: { suffix: "-small", extname: ".webp" },
@@ -28,7 +40,7 @@ gulp.task("default", () => {
           {
             format: "webp",
             width: 1024,
-            quality: 90,
+            quality: 80,
             rename: { extname: ".webp" },
           },
           {
