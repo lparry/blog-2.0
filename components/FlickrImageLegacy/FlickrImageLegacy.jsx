@@ -20,24 +20,26 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
   const webpRetinaUrl = `/assets/flickr/${flickrManifest[webpRetinaKey]}`
   return (
     <div className="flickrImage">
-      <a href={linkUrl}>
-        <img
-          src={webpTinyUrl}
-          type="image/webp"
-          srcSet={`
-            ${webpTinyUrl} 350w,
-            ${webpSmallUrl} 512w,
-            ${webpTinyRetinaUrl} 700w,
-            ${webpUrl} 1024w,
-            ${webpRetinaUrl} 2048w,
-            `}
-          sizes="(max-width: 1024px) 80vw, 80vw" // , calc(100vw - 50px)"
-          // width="1024px"
-          // height={`${parseInt(height * scaleRatio, 10)}px`}
-          alt={caption}
-        />
-      </a>
-      <p>{caption}</p>
+      <div className="polaroid">
+        <a href={linkUrl}>
+          <img
+            src={webpTinyUrl}
+            type="image/webp"
+            srcSet={`
+              ${webpTinyUrl} 350w,
+              ${webpSmallUrl} 512w,
+              ${webpTinyRetinaUrl} 700w,
+              ${webpUrl} 1024w,
+              ${webpRetinaUrl} 2048w,
+              `}
+            sizes="(max-width: 1024px) 80vw, 80vw" // , calc(100vw - 50px)"
+            // width="1024px"
+            // height={`${parseInt(height * scaleRatio, 10)}px`}
+            alt={caption}
+          />
+          <p>{caption}</p>
+        </a>
+      </div>
     </div>
   )
 }

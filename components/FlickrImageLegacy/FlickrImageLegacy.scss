@@ -9,3 +9,22 @@
 .flickrImage {
   text-align: center;
 }
+
+.polaroid {
+  display: inline-block;
+  padding: 6px;
+  background: white;
+  box-shadow: 6px 6px 6px 0px #111;
+  border-radius: 3px;
+  a {
+    font-family: 'Swanky and Moo Moo', fantasy, cursive;
+    color: #000;
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+    font-size: larger;
+    font-style: italic;
+    color: #000;
+  }
+}
