@@ -26,7 +26,7 @@ export default () => {
           )
         })
       }
-      <div className="moreLink"><a href={pageData.nextPage} onClick={Link.handleClick}>More Stories...</a></div>
+      <div className="moreLink"><a href={pageData.nextPage} onClick={Link.handleClick}>Older Stories...</a></div>
     </div>
   )
 }
