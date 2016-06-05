@@ -17,7 +17,7 @@ Promise.promisifyAll(childProcess)
 const remote = {
   name: "origin",
   url: "git@github.personal:lucastesting/lucastesting.github.io.git",
-  branch: "gh-pages",
+  branch: "master",
 }
 
 /**
@@ -41,9 +41,9 @@ export default task(async function deploy() {
   process.argv.push("release")
   await build()
 
-  childProcess.execAsync("echo 'staging.lucasthenomad.com' > CNAME", { cwd: path.resolve(__dirname, "../build") })
+  await childProcess.execAsync("rm CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
-
+  //
   // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
   //   .catch(error => { console.log(error); throw error })
 
