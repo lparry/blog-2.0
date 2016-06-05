@@ -1,6 +1,8 @@
 import Promise from "bluebird"
 import parseUtils from "parse5-utils"
 import fs from "fs"
+import moment from "moment"
+
 const fsP = Promise.promisify(fs.readFile)
 
 function closeImgTags(source) {
@@ -91,6 +93,7 @@ export function parseLegacyMarkdown(source) {
     memo[key] = value // eslint-disable-line no-param-reassign
     return memo
   }, {})
+  nicerMeta.formattedDate = moment(nicerMeta.date).format("MMMM Do YYYY, h:mm:ss a")
   if (!nicerMeta.canonicalPath) {
     const date = nicerMeta.date.replace(/ \d+:\d+/, "").replace(/-/g, "/")
     const title = urlify(nicerMeta.title)

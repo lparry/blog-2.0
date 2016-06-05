@@ -31,8 +31,9 @@ module.exports = function blogLoader(source) {
       const page = require(`../../pages/blog/${file}`)
       const metadata = page.metadata
       return {
-        date: metadata.date,
         file,
+        formattedDate: metadata.formattedDate,
+        intro: page.intro,
         path: metadata.canonicalPath,
         tags: metadata.tags,
         title: metadata.title,

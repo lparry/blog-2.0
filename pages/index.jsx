@@ -15,9 +15,18 @@ export default () => {
   return (
     <div>
       {
-        pageData.blogPosts && pageData.blogPosts.map(({ file, path, title }, index) => (
-          <BlogPostSummary key={index} path={path} title={title} content={require(`./blog/${file}`).intro} />
-        ))
+        pageData.blogPosts && pageData.blogPosts.map(({ file, intro, formattedDate, path, title }, index) => {
+          console.log(intro)
+          return (
+            <BlogPostSummary
+              key={index}
+              path={path}
+              title={title}
+              formattedDate={formattedDate}
+              content={require(`./blog/${file}`).intro}
+            />
+          )
+        })
       }
       <div className="moreLink"><a href={pageData.nextPage} onClick={Link.handleClick}>More Stories...</a></div>
     </div>
