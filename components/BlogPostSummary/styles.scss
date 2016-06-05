@@ -1,0 +1,14 @@
+@import '../variables.scss';
+
+hr.divider {
+  clear: both;
+  border: 0;
+  height: 1px;
+  background: $body-bg;
+  background-image: linear-gradient(to right, $body-bg, #484848, $body-bg);
+  margin: 30px 0 50px 0;
+}
+
+.blogPostSummary:last-of-type hr.divider {
+  display: none;
+}

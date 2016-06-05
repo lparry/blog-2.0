@@ -27,13 +27,13 @@
 
 .Navigation-link {
   padding: 0.5em 1em;
-  color: $brand-color;
+  color: $link-color;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
 
   &:hover {
-    border-bottom: 3px solid $brand-color;
+    border-bottom: 3px solid $link-color;
     color: $text-color;
   }
 }

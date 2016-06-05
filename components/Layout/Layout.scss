@@ -23,8 +23,12 @@ html, body {
   margin-bottom: 50px;
   margin-right: 70px;
   a {
-    color: $brand-color;
+    color: $link-color;
     text-decoration: none;
+    &:hover {
+      color: $text-color;
+      text-decoration: underline;
+    }
   }
 }
 
