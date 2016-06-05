@@ -20,6 +20,7 @@ function Html({ title, description, body, debug }) {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Swanky+and+Moo+Moo" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
         <script src={`/app.js?${new Date().getTime()}`} />
       </head>
       <body>

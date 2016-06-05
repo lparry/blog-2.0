@@ -21,14 +21,14 @@ function Navigation() {
     <nav className="navbar" role="navigation">
       <div className="navContainer">
         <span className="Navigation">
-          <a className="Navigation-link" href="/" onClick={Link.handleClick}>Lucas The Nomad</a>
+          <a className="Navigation-link" href="/" onClick={Link.handleClick}><i className="fa fa-globe fa-lg fa-fw" />Lucas The Nomad</a>
         </span>
-        <NavLink href="/about">Facebook</NavLink>
-        <NavLink href="/about">Twitter</NavLink>
-        <NavLink href="/about">Flickr</NavLink>
-        <NavLink href="/about">Instagram</NavLink>
-        <NavLink href="/about">Couchsurfing</NavLink>
-        <NavLink href="/about">Travel Map</NavLink>
+        <NavLink href="https://www.facebook.com/lucasparry"><i className="fa fa-facebook-square fa-lg fa-fw" />Facebook</NavLink>
+        <NavLink href="https://www.twitter.com/lucas_parry"><i className="fa fa-twitter-square fa-lg fa-fw" />Twitter</NavLink>
+        <NavLink href="https://www.flickr.com/photos/lucasthenomad/"><i className="fa fa-flickr fa-lg fa-fw" />Flickr</NavLink>
+        <NavLink href="https://instagram.com/lparry"><i className="fa fa-instagram fa-lg fa-fw" />Instagram</NavLink>
+        <NavLink href="https://www.couchsurfing.org/people/lucasthenomad/"><i className="fa fa-suitcase fa-lg fa-fw" />Couchsurfing</NavLink>
+        <NavLink href="/map"><i className="fa fa-map-marker fa-lg fa-fw" />Travel Map</NavLink>
       </div>
     </nav>
   )
