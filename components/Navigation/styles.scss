@@ -1,0 +1,51 @@
+/**
+ * React Static Boilerplate
+ * https://github.com/koistya/react-static-boilerplate
+ * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
+ */
+
+@import '../variables.scss';
+
+.navbar {
+  background-image: linear-gradient(#8a9196, #7a8288 60%, #70787d);
+  height: 50px;
+  color: #c8c8c8;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navContainer {
+  width: calc(1280px - 30px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbarheader {
+}
+
+.Navigation {
+  flex-direction: row;
+  margin: 0;
+}
+
+.Navigation-link {
+  padding: 0.5em 1em;
+  color: #c8c8c8;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.navbar:after {
+  clear: both;
+}

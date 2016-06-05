@@ -9,6 +9,10 @@ hr.divider {
   margin: 30px 0 50px 0;
 }
 
+.blogPostSummary p {
+  text-align: justify;
+}
+
 .blogPostSummary:last-of-type hr.divider {
   display: none;
 }
