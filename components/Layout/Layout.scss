@@ -18,6 +18,15 @@ html, body {
   margin: 0 auto;
 }
 
+.moreLink {
+  float: right;
+  margin-bottom: 50px;
+  margin-right: 70px;
+  a {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
 
 @media (min-width: $screen-sm-min) {
   .Layout {

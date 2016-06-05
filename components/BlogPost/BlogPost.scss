@@ -5,3 +5,12 @@
  */
 
 @import '../variables.scss';
+
+.blogPost:after {
+  content: "<hr />";
+  color: #fff;
+}
+
+blogPost:last-of-type {
+  content: "";
+}

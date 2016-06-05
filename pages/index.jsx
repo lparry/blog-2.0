@@ -5,23 +5,21 @@
  */
 
 import React from "react"
-import BlogLink from "../components/BlogLink"
+import BlogPostSummary from "../components/BlogPostSummary"
 import Link from "../components/Link"
 
 const pageData = {}
 
 export default () => {
+  console.log(pageData)
   return (
-  <div>
-    {
-      pageData.blogPosts && pageData.blogPosts.map(({ file, path, title }, index) => (
-        <div key={index}>
-          <BlogLink path={path}>{title}</BlogLink>
-          {require(`./blog/${file}`).intro}
-        </div>
-      ))
-    }
-    <a href={pageData.nextPage} onClick={Link.handleClick}>More...</a>
-  </div>
+    <div>
+      {
+        pageData.blogPosts && pageData.blogPosts.map(({ file, path, title }, index) => (
+          <BlogPostSummary key={index} path={path} title={title} content={require(`./blog/${file}`).intro} />
+        ))
+      }
+      <div className="moreLink"><a href={pageData.nextPage} onClick={Link.handleClick}>More Stories...</a></div>
+    </div>
   )
 }
