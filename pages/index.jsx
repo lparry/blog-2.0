@@ -11,12 +11,10 @@ import Link from "../components/Link"
 const pageData = {}
 
 export default () => {
-  console.log(pageData)
   return (
     <div>
       {
-        pageData.blogPosts && pageData.blogPosts.map(({ file, intro, formattedDate, path, title }, index) => {
-          console.log(intro)
+        pageData.blogPosts && pageData.blogPosts.map(({ file, formattedDate, path, title }, index) => {
           return (
             <BlogPostSummary
               key={index}

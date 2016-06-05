@@ -115,7 +115,9 @@ export function parseLegacyMarkdown(source) {
   const nicerIntro = format(intro)
   const nicerBody = body ? format(body) : ""
 
-  return { intro: nicerIntro, body: nicerBody, meta: nicerMeta }
+  const replaceLinks = (content, url) => content.replace(/linkUrl="[^"]*"/g, `linkUrl="${url}"`)
+
+  return { intro: replaceLinks(nicerIntro, nicerMeta.canonicalPath), body: [nicerIntro, nicerBody].join("\n"), meta: nicerMeta }
 }
 
 const jsxify = (data) => (

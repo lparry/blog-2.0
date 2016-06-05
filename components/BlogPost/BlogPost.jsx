@@ -3,8 +3,6 @@ import "./BlogPost.scss"
 
 export default ({ intro, body }) => (
   <div className="blogPost">
-    {intro}
-
     {body}
   </div>
 )

@@ -12,6 +12,7 @@ const BlogPostSummary = ({ path, title, formattedDate, content }) => (
     <hr className="divider" />
   </div>
 )
+
 BlogPostSummary.propTypes = {
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
