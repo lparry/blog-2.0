@@ -5,17 +5,19 @@
  */
 
 import GitRepo from "git-repository"
+import Promise from "bluebird"
 import task from "./lib/task"
 import build from "./build"
 import path from "path"
 import childProcess from "child_process"
 Promise.promisifyAll(childProcess)
 
+
 // TODO: Update deployment URL
 const remote = {
-  name: "origin-production",
-  url: "https://github.com/lparry/lparry.github.com.git",
-  branch: "master",
+  name: "origin",
+  url: "git@github.personal:lucastesting/lucastesting.github.io.git",
+  branch: "gh-pages",
 }
 
 /**
@@ -39,14 +41,14 @@ export default task(async function deploy() {
   process.argv.push("release")
   await build()
 
-  childProcess.execAsync("echo 'www.lucasthenomad.com' > CNAME", { cwd: path.resolve(__dirname, "../build") })
+  childProcess.execAsync("echo 'staging.lucasthenomad.com' > CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
 
-  childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
-    .catch(error => { console.log(error); throw error })
+  // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
+  //   .catch(error => { console.log(error); throw error })
 
   // Push the contents of the build folder to the remote server via Git
   await repo.add("--all .")
   await repo.commit(`Update ${new Date().toISOString()}`)
-  await repo.push(remote.name, `HEAD:${remote.branch}`)
+  await repo.push(remote.name, `HEAD:${remote.branch}`, { force: true })
 })
