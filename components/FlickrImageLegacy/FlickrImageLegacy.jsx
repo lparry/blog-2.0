@@ -2,13 +2,8 @@ import React, { PropTypes } from "react"
 import flickrManifest from "../../flickr_manifest.json"
 import "./FlickrImageLegacy.scss"
 
-function getRandomIntInclusive(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
+const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
   if (!flickrID) return <p>broken image</p>
-  const scaleRatio = 1024 / width
   const baseImg = `${flickrID.slice(0, 2)}/${flickrID}`
   // const jpg = `${baseImg}.jpg`
   // const jpgR = `${baseImg}@2x.jpg`
@@ -22,13 +17,9 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
   const webpUrl = `/assets/flickr/${flickrManifest[webpKey]}`
   const webpSmallUrl = `/assets/flickr/${flickrManifest[webpSmallKey]}`
   const webpRetinaUrl = `/assets/flickr/${flickrManifest[webpRetinaKey]}`
-  const transforms = [
-    "rotate(-0.3deg)",
-    "rotate(0.3deg)",
-  ]
 
   return (
-    <div className="flickrImage" style={{ transform: `${transforms[getRandomIntInclusive(0, 1)]}` }}>
+    <div className="flickrImage">
       <div className="flickrImage__container">
         <a href={linkUrl}>
           <img
