@@ -31,7 +31,7 @@ now volunteers as a ranger each year, so it was fantastic for me to have someone
 who could answer my questions about what was and wasn't important stuff to take,
 and tell me tales of past years events.
 
-<a href="https://www.flickr.com/photos/lucasthenomad/20395641339/in/dateposted-public/" title="River saying hello to the camera"><img src="https://farm1.staticflickr.com/640/20395641339_7e0870d804_c.jpg" width="800" height="534" alt="River saying hello to the camera"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a href="https://www.flickr.com/photos/lucasthenomad/20395641339/in/dateposted-public/" title="River saying hello to the camera"><img src="https://farm1.staticflickr.com/640/20395641339_7e0870d804_c.jpg" width="800" height="534" alt="River saying hello to the camera"></a>
 
 Sarah and Chad's condo is a beautiful big place right near the mission district,
 really spacious and light. They have an awesome dog named River, an American
