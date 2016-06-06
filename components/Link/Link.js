@@ -20,7 +20,6 @@ class Link extends Component {
 
   static propTypes = {
     to: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired,
     state: PropTypes.object,
     onClick: PropTypes.func,
   };
@@ -61,7 +60,7 @@ class Link extends Component {
 
   render() {
     const { to, children, ...props } = this.props
-    return <a {...props} onClick={Link.handleClick.bind(this)}>{children}</a>
+    return <a {...props} href={to} onClick={Link.handleClick.bind(this)}>{children}</a>
   }
 
 }

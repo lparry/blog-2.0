@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import flickrManifest from "../../flickr_manifest.json"
+import Link from "../Link"
 import "./FlickrImageLegacy.scss"
 
 const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
@@ -21,7 +22,7 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
   return (
     <div className="flickrImage">
       <div className="flickrImage__container">
-        <a href={linkUrl}>
+        <Link to={linkUrl}>
           <img
             src={webpTinyUrl}
             type="image/webp"
@@ -38,7 +39,7 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
             alt={caption}
           />
           <p className="flickrImageCaption">{caption}</p>
-        </a>
+        </Link>
       </div>
     </div>
   )
