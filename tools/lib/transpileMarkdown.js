@@ -36,18 +36,17 @@ function escapeQuotes(str) {
 }
 
 function paragraphize(memo, line, index, array) {
-  if (index === 0) { memo.push("<p>") }
-  if (line === "") { memo.push("</p>") }
+  if (index === 0) { memo.push("<div>") }
+  if (line === "") { memo.push("</div>") }
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
     const flickrDetails = extractFlickrImageDetails(line)
-//    memo.push(`<p> flickr image: ${flickrID}, imagePageUrl: ${flickrDetails.imagePageUrl} altTag: ${flickrDetails.altTag}</p>`)
     memo.push(`<FlickrImageLegacy flickrID="${flickrID}" linkUrl="${flickrDetails.imagePageUrl}" caption="${escapeQuotes(flickrDetails.altTag)}" />`)
   } else {
     memo.push(line)
   }
-  if (line === "") { memo.push("<p>") }
-  if (index === (array.length - 1)) { memo.push("</p>") }
+  if (line === "") { memo.push("<div>") }
+  if (index === (array.length - 1)) { memo.push("</div>") }
   return memo
 }
 
