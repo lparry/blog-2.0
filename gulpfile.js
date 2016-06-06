@@ -7,47 +7,35 @@ gulp.task("default", () => {
     .pipe(responsive(
       {
         "**/*.{png,jpg}": [
-          // {
-          //   format: "jpeg",
-          //   width: 1024,
-          //   quality: 90,
-          //   rename: { extname: ".jpg" },
-          // },
-          // {
-          //   format: "jpeg",
-          //   width: 2048,
-          //   quality: 50,
-          //   rename: { suffix: "@2x", extname: ".jpg" },
-          // },
           {
-            format: "webp",
+            format: "jpeg",
             width: 350,
             quality: 90,
-            rename: { suffix: "-tiny", extname: ".webp" },
+            rename: { suffix: "-tiny", extname: ".jpg" },
           },
           {
-            format: "webp",
+            format: "jpeg",
             width: 700,
             quality: 90,
-            rename: { suffix: "-tiny@2x", extname: ".webp" },
+            rename: { suffix: "-tiny@2x", extname: ".jpg" },
           },
           {
-            format: "webp",
+            format: "jpeg",
             width: 512,
             quality: 90,
-            rename: { suffix: "-small", extname: ".webp" },
+            rename: { suffix: "-small", extname: ".jpg" },
           },
           {
-            format: "webp",
+            format: "jpeg",
             width: 1024,
             quality: 80,
             rename: { extname: ".webp" },
           },
           {
-            format: "webp",
+            format: "jpeg",
             width: 2048,
             quality: 50,
-            rename: { suffix: "@2x", extname: ".webp" },
+            rename: { suffix: "@2x", extname: ".jpg" },
           },
         ],
       },
