@@ -36,7 +36,7 @@ function escapeQuotes(str) {
 }
 
 function paragraphize(memo, line, index, array) {
-  if (index === 0) { memo.push("<div>") }
+  if (index === 0) { memo.push("<div className=\"stanza\">") }
   if (line === "") { memo.push("</div>") }
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
@@ -45,7 +45,7 @@ function paragraphize(memo, line, index, array) {
   } else {
     memo.push(line)
   }
-  if (line === "") { memo.push("<div>") }
+  if (line === "") { memo.push("<div className=\"stanza\">") }
   if (index === (array.length - 1)) { memo.push("</div>") }
   return memo
 }
