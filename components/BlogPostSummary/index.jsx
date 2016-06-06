@@ -8,7 +8,7 @@ const BlogPostSummary = ({ path, title, formattedDate, content }) => (
     <BlogLink path={path}>{title}</BlogLink>
     <div className="date">{formattedDate}</div>
     {content}
-    <div className="moreLink"><a href={path} onClick={Link.handleClick}>Read More...</a></div>
+    <div className="moreLink"><Link to={path}>Read More...</Link></div>
     <hr className="divider" />
   </div>
 )

@@ -10,7 +10,7 @@ import Link from "../Link"
 
 const NavLink = ({ href, children }) => (
   <span className="navigation navigationHeader">
-    <a className="navigationLink" href={href} >{children}</a>
+    <Link className="navigationLink" to={href} >{children}</Link>
   </span>
 )
 NavLink.propTypes = {
@@ -23,7 +23,7 @@ function Navigation() {
     <nav className="navbar" role="navigation">
       <div className="navContainer">
         <span className="navigation">
-          <a className="navigationLink" href="/" onClick={Link.handleClick}><i className="fa fa-globe fa-lg fa-fw" />Lucas The Nomad</a>
+          <Link className="navigationLink" to="/"><i className="fa fa-globe fa-lg fa-fw" />Lucas The Nomad</Link>
         </span>
         <NavLink href="https://www.facebook.com/lucasparry"><i className="fa fa-facebook fa-lg fa-fw" />Facebook</NavLink>
         <NavLink href="https://www.twitter.com/lucas_parry"><i className="fa fa-twitter fa-lg fa-fw" />Twitter</NavLink>

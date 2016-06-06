@@ -20,6 +20,7 @@ class Link extends Component {
 
   static propTypes = {
     to: PropTypes.string.isRequired,
+    children: PropTypes.node,
     state: PropTypes.object,
     onClick: PropTypes.func,
   };
