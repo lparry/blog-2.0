@@ -13,12 +13,15 @@ function closeImgTags(source) {
 }
 
 function lineIsFlickrImage(line) {
-  return line.match(/<a [^>]*><img [^>]*src="https?:\/\/farm[0-9]+.staticflickr.com[^>]*>/)
+  return line.match(/<a [^>]*><img [^>]*src="https?:\/\/[a-z0-9]*.staticflickr.com[^>]*>/)
 }
 
 function extractFlickrImageId(line) {
   return parseInt(
-    line.match(/src="https?:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/)[1],
+    (
+      line.match(/src="https?:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/) ||
+      line.match(/src="https?:\/\/c[0-9]+.staticflickr.com\/[0-9]\/[0-9]+\/([0-9]+)_[^>]*>/)
+    )[1],
     10)
 }
 
