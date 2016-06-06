@@ -46,14 +46,15 @@ and moving them down and up stairs.
 <a href="https://www.flickr.com/photos/lucasthenomad/19900195976/in/set-72157653894545484" title="Golden Gate bridge being covered by Karl the fog by Lucas the nomad, on Flickr"><img src="https://farm1.staticflickr.com/434/19900195976_fd83fca6ec_c.jpg" width="800" height="601" alt="Golden Gate bridge being covered by Karl the fog"></a>
 
 One of the nights not long after I arrived, there was a 15th anniversary
-screening of [Office Space][office-space] happening at the Castro theatre that
-Sarah and Chad were going to, so I grabbed a ticket and went along too. The
-Castro Theatre is one of those historic old places that only plays arthouse
-movies and cult classics, and for the 15th anniversary of Office Space, they
-actually had Stephen Root (who played Milton with the Swingline stapler) there
-to talk at the beginning and do a Q&A afterwards. It was just as funny as it was
-when it came out, and it felt kind of surreal to be in a theatre full of people
-who loved the movie so much and even a member of the cast!
+screening of <a href="http://www.imdb.com/title/tt0151804/">Office Space</a>
+happening at the Castro theatre that Sarah and Chad were going to, so I grabbed
+a ticket and went along too. The Castro Theatre is one of those historic old
+places that only plays arthouse movies and cult classics, and for the 15th
+anniversary of Office Space, they actually had Stephen Root (who played Milton
+with the Swingline stapler) there to talk at the beginning and do a Q&A
+afterwards. It was just as funny as it was when it came out, and it felt kind of
+surreal to be in a theatre full of people who loved the movie so much and even a
+member of the cast!
 
 <a href="https://www.flickr.com/photos/lucasthenomad/19931147451/in/set-72157653894545484" title="SF Grafitti by Lucas the nomad, on Flickr"><img src="https://farm1.staticflickr.com/479/19931147451_9a9fa9501f_c.jpg" width="800" height="730" alt="SF Grafitti"></a>
 
@@ -268,4 +269,3 @@ iconic sound.
 
 <a href="https://www.flickr.com/photos/lucasthenomad/19931836531/in/set-72157653894545484" title="Last view of Alcatraz by Lucas the nomad, on Flickr"><img src="https://farm1.staticflickr.com/357/19931836531_affa630f39_c.jpg" width="800" height="601" alt="Last view of Alcatraz"></a>
 
-[office-space]: http://www.imdb.com/title/tt0151804/

@@ -40,9 +40,10 @@ fries and fruit came out on skewers in the cocktail, like cocktail stirrers!
 
 <a href="https://www.flickr.com/photos/lucasthenomad/16956446822/in/set-72157651649474182" title="It was a short muddy walk to the top by Lucas the nomad, on Flickr"><img src="https://farm8.staticflickr.com/7623/16956446822_812f3862a5_c.jpg" width="601" height="800" alt="It was a short muddy walk to the top"></a>
 
-The next day I booked myself in for a trip up [Volcan Pacaya][pacaya], one of
-Guatemala more active volcanoes that last seriously erupted in 2010, blowing ash
-so high that it even rained down on the modern day capital Guatemala City.
+The next day I booked myself in for a trip up <a
+href="http://en.wikipedia.org/wiki/Pacaya">Volcan Pacaya</a>, one of Guatemala
+more active volcanoes that last seriously erupted in 2010, blowing ash so high
+that it even rained down on the modern day capital Guatemala City.
 
 <a href="https://www.flickr.com/photos/lucasthenomad/16770337980/in/set-72157651649474182" title="These guys followed us trying to get us to ride their horses up. Doubly anoying for me as they set off my horse allergy by Lucas the nomad, on Flickr"><img src="https://farm8.staticflickr.com/7618/16770337980_098faedf22_c.jpg" width="800" height="601" alt="These guys followed us trying to get us to ride their horses up. Doubly anoying for me as they set off my horse allergy"></a>
 
@@ -88,10 +89,12 @@ naturally to me.
 <a href="https://www.flickr.com/photos/lucasthenomad/16363383863/in/set-72157651649474182" title="This part of the wall fell a long way from the rest of it by Lucas the nomad, on Flickr"><img src="https://farm9.staticflickr.com/8697/16363383863_8ef0495537_c.jpg" width="800" height="601" alt="This part of the wall fell a long way from the rest of it"></a>
 
 I explored a few of the more maintained ruins around the city, but the most
-impressive one for me was [Convento La Recolección][recollecion], an old cathedral and
-monastery/convent. I'd barely entered the site and a grounds keeper approached me
-and started showing me around as a bit of a tour guide, all in Spanish which was
-good practice but may mean I have some mistranslations.
+impressive one for me was <a
+href="http://en.wikipedia.org/wiki/La_Recolección_Architectural_Complex">Convento
+La Recolección</a>, an old cathedral and monastery/convent. I'd barely entered
+the site and a grounds keeper approached me and started showing me around as a
+bit of a tour guide, all in Spanish which was good practice but may mean I have
+some mistranslations.
 
 <a href="https://www.flickr.com/photos/lucasthenomad/16797269099/in/set-72157651649474182" title="Ruined courtyard by Lucas the nomad, on Flickr"><img src="https://farm8.staticflickr.com/7644/16797269099_f52a4e9fa2_c.jpg" width="800" height="601" alt="Ruined courtyard"></a>
 
@@ -126,8 +129,9 @@ so thoroughly.
 
 <a href="https://www.flickr.com/photos/lucasthenomad/16797299179/in/set-72157651649474182" title="Convent of the order of mercy fountain by Lucas the nomad, on Flickr"><img src="https://farm9.staticflickr.com/8709/16797299179_ce3ac8ec8d_c.jpg" width="601" height="800" alt="Convent of the order of mercy fountain"></a>
 
-Other highlights where the massive fountain inside [Iglesia La Merced][merced],
-27 metres across and set inside a huge courtyard.
+Other highlights where the massive fountain inside <a
+href="http://en.wikipedia.org/wiki/La_Merced_Church">Iglesia La Merced</a>, 27
+metres across and set inside a huge courtyard.
 
 <a href="https://www.flickr.com/photos/lucasthenomad/16796052590/in/set-72157651649474182" title="Antigua Cathedral ruins by Lucas the nomad, on Flickr"><img src="https://farm8.staticflickr.com/7614/16796052590_1855a0d78c_c.jpg" width="601" height="800" alt="Antigua Cathedral ruins"></a>
 
@@ -137,6 +141,3 @@ other bits have collapsed, making some stunning natural skylights. I heard that
 this one wasn't actually a victim of the earthquakes, but rather collapsed
 because of a lack of maintenance.
 
-[pacaya]: http://en.wikipedia.org/wiki/Pacaya
-[recollecion]: http://en.wikipedia.org/wiki/La_Recolección_Architectural_Complex
-[merced]: http://en.wikipedia.org/wiki/La_Merced_Church

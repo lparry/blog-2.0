@@ -8,7 +8,8 @@ tags: Retrospective
 
 <a href="https://www.flickr.com/photos/lucasthenomad/17568248432" title="Roatan Sunset by Lucas Parry, on Flickr"><img src="https://c1.staticflickr.com/9/8870/17568248432_fb0697974c_c.jpg" width="800" height="500" alt="Roatan Sunset"></a>
 
-So today marks two years since [I last set foot in Australia][leaving-home].
+So today marks two years since <a href="/2013/05/12/its-go-time/">I last set
+foot in Australia</a>.
 
 <!-- more -->
 
@@ -49,4 +50,3 @@ friendship circle that has evolved so much since I last saw them; but those are
 all bridges I will cross as I come to them. For now I'm still relishing the last
 few months of this amazing journey. Thanks for following along the ride!
 
-[leaving-home]: /2013/05/12/its-go-time/
