@@ -52,7 +52,7 @@ function paragraphize(memo, line, index, array) {
 
 function fixPropNames(line) {
   return line
-    .replace(/ class=/, " className=")
+    .replace(/ class=/g, " className=")
     .replace(/ frameborder=/, " frameBorder=")
     .replace(/allowfullscreen/, "allowFullScreen")
 }
