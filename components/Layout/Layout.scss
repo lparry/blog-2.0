@@ -16,12 +16,7 @@ html, body {
 
 .Layout {
   margin: 0 auto;
-}
 
-.moreLink {
-  float: right;
-  margin-bottom: 50px;
-  margin-right: 70px;
   a {
     color: $link-color;
     text-decoration: none;
@@ -30,6 +25,12 @@ html, body {
       text-decoration: underline;
     }
   }
+}
+
+.moreLink {
+  float: right;
+  margin-bottom: 50px;
+  margin-right: 70px;
 }
 
 @media (min-width: $screen-sm-min) {
