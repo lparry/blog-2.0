@@ -32,10 +32,6 @@ html, body {
   }
 }
 
-.stanza {
-  padding: 15px;
-}
-
 @media (min-width: $screen-sm-min) {
   .Layout {
     width: calc($screen-sm-min - 18px);

@@ -13,12 +13,12 @@ function closeImgTags(source) {
 }
 
 function lineIsFlickrImage(line) {
-  return line.match(/<a [^>]*><img [^>]*src="https:\/\/farm[0-9]+.staticflickr.com[^>]*>/)
+  return line.match(/<a [^>]*><img [^>]*src="https?:\/\/farm[0-9]+.staticflickr.com[^>]*>/)
 }
 
 function extractFlickrImageId(line) {
   return parseInt(
-    line.match(/src="https:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/)[1],
+    line.match(/src="https?:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/)[1],
     10)
 }
 
@@ -36,17 +36,17 @@ function escapeQuotes(str) {
 }
 
 function paragraphize(memo, line, index, array) {
-  if (index === 0) { memo.push("<div className=\"stanza\">") }
-  if (line === "") { memo.push("</div>") }
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
     const flickrDetails = extractFlickrImageDetails(line)
     memo.push(`<FlickrImageLegacy flickrID="${flickrID}" linkUrl="${flickrDetails.imagePageUrl}" caption="${escapeQuotes(flickrDetails.altTag)}" />`)
   } else {
+    if (index === 0) { memo.push("<p>") }
+    if (line === "" && !lineIsFlickrImage(array[index - 1])) { memo.push("</p>") }
     memo.push(line)
+    if (line === "" && !lineIsFlickrImage(array[index + 1])) { memo.push("<p>") }
+    if (index === (array.length - 1)) { memo.push("</p>") }
   }
-  if (line === "") { memo.push("<div className=\"stanza\">") }
-  if (index === (array.length - 1)) { memo.push("</div>") }
   return memo
 }
 
@@ -128,7 +128,7 @@ export function parseLegacyMarkdown(source) {
 }
 
 const jsxify = (data) => (
-  `import React from "react"\nimport FlickrImageLegacy from "../../components/FlickrImageLegacy"\nimport BlogPost from "../../components/BlogPost"\nexport const metadata = ${JSON.stringify(data.meta, null, 2)}\nexport const intro = <div>${data.intro}</div>\nexport const body = <div>${data.body}</div>\nconst blogPages = [] \nexport default () => <BlogPost intro={intro} body={body} />` // eslint-disable-line max-len
+  `import React from "react"\nimport FlickrImageLegacy from "../../components/FlickrImageLegacy"\nimport BlogPost from "../../components/BlogPost"\n\nexport const metadata = ${JSON.stringify(data.meta, null, 2)}\n\nexport const intro = <div className="postIntro">\n${data.intro}\n</div>\n\nexport const body = <div className="postBody">\n${data.body}\n</div>\nconst blogPages = [] \n\nexport default () => <BlogPost intro={intro} body={body} />` // eslint-disable-line max-len
 )
 
 export default function markdownTranspiler(file) {
