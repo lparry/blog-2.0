@@ -5,7 +5,6 @@ import childProcess from "child_process"
 import path from "path"
 
 Promise.promisifyAll(fs)
-Promise.promisifyAll(Flickr)
 
 const flickrOptions = {
   api_key: process.env.FLICKR_API_KEY,
@@ -32,9 +31,9 @@ function lookupPhoto(id) {
   const filename = `flickr-data/${id}.json`
   if (fs.existsSync(filename)) return flickrDataFromDisk(id)
 
-  return Flickr.tokenOnlyAsync(flickrOptions)
+  return Promise.promisify(Flickr.tokenOnly)(flickrOptions)
     .then(flickr => (
-      flickr.photos.getSizesAsync({ photo_id: id })
+      Promise.promisify(flickr.photos.getSizes)({ photo_id: id })
         .then(result => result.sizes.size)
         .then(objectifySizeArray)
         .then(sizes => {
@@ -44,6 +43,7 @@ function lookupPhoto(id) {
         .catch(err => console.error(err))
     )
   )
+  .catch(error => console.error("shit", error))
 }
 
 export const cachePath = (id) => path.resolve(`cache/flickr/${id.slice(0, 2)}/${id}.jpg`)
@@ -60,6 +60,7 @@ const largestSize = sizes => (
 )
 
 async function download(url, output) {
+  console.log(`downloading ${output}...`)
   childProcess.execSync(`curl --silent --create-dirs --compressed --output ${output} ${url}`)
   console.log(`downloaded ${output}`)
 }
@@ -75,8 +76,11 @@ function cacheImg(id) {
 }
 
 export default function getImageData(id) {
-  cacheImg(id)
   return lookupPhoto(id)
+    .then(data => {
+      cacheImg(id)
+      return data
+    })
    .then(largestSize)
    .then(size => ({
      height: size.height,

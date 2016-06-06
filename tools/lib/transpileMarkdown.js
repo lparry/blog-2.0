@@ -57,9 +57,21 @@ function fixPropNames(line) {
     .replace(/allowfullscreen/, "allowFullScreen")
 }
 
+function spaceFlickrImages(memo, line, index, array) {
+  if (lineIsFlickrImage(line)) {
+    if ((array[index - 1] || "").trim() !== "") memo.push("")
+    memo.push(line)
+    if ((array[index + 1] || "").trim() !== "") memo.push("")
+  } else {
+    memo.push(line)
+  }
+  return memo
+}
+
 function format(source) {
   return source
     .split("\n")
+    .reduce(spaceFlickrImages, [])
     .reduce(paragraphize, [])
     .map(fixPropNames)
     .join("\n")
