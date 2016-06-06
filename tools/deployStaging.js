@@ -41,7 +41,7 @@ export default task(async function deploy() {
   process.argv.push("release")
   await build()
 
-  await childProcess.execAsync("rm CNAME", { cwd: path.resolve(__dirname, "../build") })
+  await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
   //
   // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })

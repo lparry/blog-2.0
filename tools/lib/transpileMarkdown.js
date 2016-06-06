@@ -51,11 +51,19 @@ function paragraphize(memo, line, index, array) {
   return memo
 }
 
+function fixPropNames(line) {
+  return line
+    .replace(/ class=/, " className=")
+    .replace(/ frameborder=/, " frameBorder=")
+    .replace(/ allowfullscreen=/, " allowFullScreen=")
+}
+
 function format(source) {
-  return source.
-    split("\n").
-    reduce(paragraphize, []).
-    join("\n")
+  return source
+    .split("\n")
+    .reduce(paragraphize, [])
+    .map(fixPropNames)
+    .join("\n")
 }
 
 const urlify = (title) => (
