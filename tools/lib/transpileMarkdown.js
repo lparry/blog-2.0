@@ -55,7 +55,7 @@ function fixPropNames(line) {
   return line
     .replace(/ class=/, " className=")
     .replace(/ frameborder=/, " frameBorder=")
-    .replace(/ allowfullscreen=/, " allowFullScreen=")
+    .replace(/allowfullscreen/, "allowFullScreen")
 }
 
 function format(source) {
