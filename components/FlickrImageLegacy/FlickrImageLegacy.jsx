@@ -29,7 +29,7 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
 
   return (
     <div className="flickrImage" style={{ transform: `${transforms[getRandomIntInclusive(0, 1)]}` }}>
-      <div className="polaroid">
+      <div className="flickrImage__container">
         <a href={linkUrl}>
           <img
             src={webpTinyUrl}
@@ -46,7 +46,7 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption, height, width }) => {
             // height={`${parseInt(height * scaleRatio, 10)}px`}
             alt={caption}
           />
-          <p>{caption}</p>
+          <p className="flickrImageCaption">{caption}</p>
         </a>
       </div>
     </div>
