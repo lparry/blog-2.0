@@ -9,6 +9,7 @@ import BlogPostSummary from "../components/BlogPostSummary"
 import Link from "../components/Link"
 
 const pageData = {}
+const tags = []
 
 export default () => {
   return (
@@ -27,6 +28,7 @@ export default () => {
         })
       }
       <div className="moreLink"><Link to={pageData.nextPage}>Older Stories...</Link></div>
+      {tags.map(tag => <div>{tag}</div>)}
     </div>
   )
 }
