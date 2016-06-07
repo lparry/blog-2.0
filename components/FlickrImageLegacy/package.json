@@ -1,5 +1,5 @@
 {
   "private": true,
   "name": "FlickrImageLegacy",
-  "main": "./FlickrImageLegacy.jsx"
+  "main": "./index.jsx"
 }
