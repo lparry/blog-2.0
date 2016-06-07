@@ -154,6 +154,14 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
+    new ExtractTextPlugin("styles.[contenthash].css"),
+    function () { // eslint-disable-line func-names
+      this.plugin("done", (stats) => {
+        require("fs").writeFileSync( // eslint-disable-line global-require
+          path.join(__dirname, "..", "webpackStats.json"),
+          JSON.stringify(stats.toJson(), null, 2))
+      })
+    },
   ],
   module: {
     loaders: [
@@ -181,7 +189,7 @@ const appConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "postcss-loader"],
+        loader: ExtractTextPlugin.extract("css!postcss", { allChunks: false }),
       },
     ],
   },
@@ -224,7 +232,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css!postcss"),
+        loader: ExtractTextPlugin.extract("css!postcss", { allChunks: false }),
       },
     ],
   },
