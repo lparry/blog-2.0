@@ -8,6 +8,22 @@ import glob from "glob"
 import { join } from "path"
 import sortBy from "lodash.sortby"
 
+function capitalize(string) {
+  return string.split(" ")
+    .map(word => word.replace(/(?:^|\s)\S/g, a => a.toUpperCase()))
+    .join(" ")
+}
+
+const PRESERVED = {
+  nye: "NYE",
+  usa: "USA",
+}
+
+function formattedTag(tag) {
+  const lowerTag = tag.toLowerCase()
+  return PRESERVED[lowerTag] || capitalize(lowerTag)
+}
+
 module.exports = function tagLoader(source) {
   this.cacheable()
   const target = this.target
@@ -25,7 +41,7 @@ module.exports = function tagLoader(source) {
     const tagList = {}
     files.forEach(file => {
       const tags = require(`../../pages/blog/${file}`).metadata.tags // eslint-disable-line global-require
-      tags.forEach(tag => (tagList[tag] = tag))
+      tags.forEach(tag => (tagList[formattedTag(tag)] = tag))
     })
 
     const tags = sortBy(Object.keys(tagList))
