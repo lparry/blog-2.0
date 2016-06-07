@@ -6,8 +6,9 @@
 
 import glob from "glob"
 import { join } from "path"
+import sortBy from "lodash.sortby"
 
-module.exports = function blogLoader(source) {
+module.exports = function tagLoader(source) {
   this.cacheable()
   const target = this.target
   const callback = this.async()
@@ -27,7 +28,7 @@ module.exports = function blogLoader(source) {
       tags.forEach(tag => (tagList[tag] = tag))
     })
 
-    const tags = Object.keys(tagList)
+    const tags = sortBy(Object.keys(tagList))
 
     if (tags.length) {
       return callback(null,
