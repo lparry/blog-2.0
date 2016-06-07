@@ -8,6 +8,8 @@ import React, { PropTypes } from "react"
 import GoogleAnalytics from "../GoogleAnalytics"
 import config from "../../config"
 
+import webpackStats from "../../webpackStats.json"
+
 function Html({ title, description, body, debug }) {
   return (
     <html className="no-js" lang="">
@@ -18,6 +20,7 @@ function Html({ title, description, body, debug }) {
         <meta name="description" content={description || config.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Swanky+and+Moo+Moo" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />

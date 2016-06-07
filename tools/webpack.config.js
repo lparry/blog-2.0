@@ -209,7 +209,14 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new ExtractTextPlugin("styles.[hash].css"),
+    new ExtractTextPlugin("styles.[contenthash].css"),
+    function () { // eslint-disable-line func-names
+      this.plugin("done", (stats) => {
+        require("fs").writeFileSync( // eslint-disable-line global-require
+          path.join(__dirname, "..", "webpackStats.json"),
+          JSON.stringify(stats.toJson(), null, 2))
+      })
+    },
   ]),
   module: {
     loaders: [
