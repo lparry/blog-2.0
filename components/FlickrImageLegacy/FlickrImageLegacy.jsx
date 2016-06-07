@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import flickrManifest from "../../flickr_manifest.json"
 import Link from "../Link"
-import "./FlickrImageLegacy.scss"
+import "./styles.scss"
 
 const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
   if (!flickrID) return <p>broken image</p>

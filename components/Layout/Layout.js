@@ -5,7 +5,7 @@
  */
 
 import React, { PropTypes } from "react"
-import "./Layout.scss"
+import "./styles.scss"
 import Navigation from "../Navigation"
 
 function Layout({ children }) {

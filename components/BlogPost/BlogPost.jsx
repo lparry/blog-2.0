@@ -1,5 +1,5 @@
 import React from "react"
-import "./BlogPost.scss"
+import "./styles.scss"
 
 export default ({ intro, body }) => (
   <div className="blogPost">

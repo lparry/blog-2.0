@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 import Link from "../Link"
-import "./BlogLink.scss"
+import "./styles.scss"
 
 const BlogLink = (props) => (
   <h5 className="blogLinkHeading"><Link to={props.path}>{props.children}</Link></h5>
