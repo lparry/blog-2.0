@@ -2,6 +2,7 @@ import Promise from "bluebird"
 import parseUtils from "parse5-utils"
 import fs from "fs"
 import moment from "moment"
+import formatTag from "../../lib/formatTag"
 
 const fsP = Promise.promisify(fs.readFile)
 
@@ -122,7 +123,7 @@ export function parseLegacyMarkdown(source) {
     nicerMeta.canonicalPath = `/${date}/${title}`
   }
 
-  nicerMeta.tags = nicerMeta.tags.split(/[, ]/).map(tag => tag.replace(/-/g, " ").trim())
+  nicerMeta.tags = nicerMeta.tags.split(/[, ]/).map(tag => formatTag(tag.replace(/-/g, " ").trim()))
 
   const intro = file.
     slice(endMeta + 1, endIntro).
