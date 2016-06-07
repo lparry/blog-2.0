@@ -122,7 +122,7 @@ export function parseLegacyMarkdown(source) {
     nicerMeta.canonicalPath = `/${date}/${title}`
   }
 
-  nicerMeta.tags = nicerMeta.tags.split(",").map(tag => tag.trim())
+  nicerMeta.tags = nicerMeta.tags.replace(/-/g, " ").split(",").map(tag => tag.trim())
 
   const intro = file.
     slice(endMeta + 1, endIntro).
