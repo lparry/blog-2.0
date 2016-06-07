@@ -143,7 +143,7 @@ export function parseLegacyMarkdown(source) {
 }
 
 const jsxify = (data) => (
-  `import React from "react"\nimport FlickrImageLegacy from "../../components/FlickrImageLegacy"\nimport BlogPost from "../../components/BlogPost"\n\nexport const metadata = ${JSON.stringify(data.meta, null, 2)}\n\nexport const intro = <div className="postIntro">\n${data.intro}\n</div>\n\nexport const body = <div className="postBody">\n${data.body}\n</div>\nconst blogPages = [] \n\nexport default () => <BlogPost intro={intro} body={body} />` // eslint-disable-line max-len
+  `import React from "react"\nimport FlickrImageLegacy from "../../components/FlickrImageLegacy"\nimport BlogPost from "../../components/BlogPost"\n\nexport const metadata = ${JSON.stringify(data.meta, null, 2)}\n\nexport const intro = <div className="postIntro">\n${data.intro}\n</div>\n\nexport const body = <div className="postBody">\n${data.body}\n</div>\nconst blogPages = [] \n\nexport default () => <BlogPost metadata={metadata} body={body} />` // eslint-disable-line max-len
 )
 
 export default function markdownTranspiler(file) {
