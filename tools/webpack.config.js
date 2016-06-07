@@ -10,6 +10,8 @@ import merge from "lodash.merge"
 import postcssImport from "postcss-import"
 import precss from "precss"
 import autoprefixer from "autoprefixer"
+import ExtractTextPlugin from "extract-text-webpack-plugin"
+
 
 // sometimes babel is retarded and tries to import css instead of letting webpack do it
 require.extensions[".scss"] = () => undefined
@@ -207,6 +209,7 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+    new ExtractTextPlugin("styles.[hash].css"),
   ]),
   module: {
     loaders: [
@@ -214,7 +217,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loaders: ["css-loader", "postcss-loader"],
+        loader: ExtractTextPlugin.extract("style", "css!postcss"),
       },
     ],
   },

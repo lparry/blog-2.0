@@ -21,6 +21,7 @@
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.1.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "fbjs": "^0.8.2",
     "file-loader": "^0.8.4",
     "flickrapi": "^0.4.2",
