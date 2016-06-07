@@ -5,7 +5,7 @@ const BlogPost = (props) => {
   const { body, metadata: { title, formattedDate, tags } } = props
   return (
     <div className="blogPost__content">
-      <h1>{title}</h1>
+      <h1 className="blogLinkHeading">{title}</h1>
       <div className="date">{formattedDate}</div>
       <div className="blogPost__body">
         {body}
