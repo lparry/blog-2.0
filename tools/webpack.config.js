@@ -151,7 +151,7 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
-    new ExtractTextPlugin("styles.[contenthash].css"),
+    new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -187,7 +187,7 @@ const appConfig = merge({}, config, {
       {
         test: /\.scss$/,
         // loaders: ["style", "css", "postcss"],
-        loader: ExtractTextPlugin.extract("css!postcss", { allChunks: true }),
+        loader: ExtractTextPlugin.extract("css!postcss"),
       },
     ],
   },
@@ -215,7 +215,7 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new ExtractTextPlugin("styles.[contenthash].css"),
+    new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -230,7 +230,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css!postcss", { allChunks: true }),
+        loader: ExtractTextPlugin.extract("css!postcss"),
       },
     ],
   },
