@@ -12,6 +12,8 @@ module.exports = function tagLoader(source) {
   const target = this.target
   const callback = this.async()
 
+  if (!source.match(/allTags = \[\]/)) return callback(null, source)
+
   if (target === "node") {
     source = source.replace("import 'babel/polyfill';", "") // eslint-disable-line no-param-reassign
   }
@@ -44,8 +46,8 @@ module.exports = function tagLoader(source) {
 
     if (tags.length) {
       return callback(null,
-                      source.replace(" tags = []",
-                                     (` tags = ${JSON.stringify(tags)}`)))
+                      source.replace(" allTags = []",
+                                     (` allTags = ${JSON.stringify(tags)}`)))
     }
 
     return callback(new Error("Cannot find any blog pages."))

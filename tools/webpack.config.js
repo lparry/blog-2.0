@@ -34,7 +34,7 @@ const JS_LOADER = {
     path.resolve(__dirname, "../app.js"),
     path.resolve(__dirname, "../config.js"),
   ],
-  loader: `babel-loader!${path.join(__dirname, "./lib/flickr-url-loader.js")}`,
+  loader: `babel-loader!${path.join(__dirname, "./lib/flickr-url-loader.js")}!${path.join(__dirname, "./lib/tag-loader.js")}`,
 }
 
 // Base configuration
@@ -72,7 +72,7 @@ const config = {
       },
       {
         test: /[\\\/]pages\/index\.jsx?$/,
-        loader: `${path.join(__dirname, "./lib/paginated-blog-intro-loader.js")}!${path.join(__dirname, "./lib/tag-loader.js")}!${path.join(__dirname, "./lib/pagination-page-creator-loader.js")}`,
+        loader: `${path.join(__dirname, "./lib/paginated-blog-intro-loader.js")}!${path.join(__dirname, "./lib/pagination-page-creator-loader.js")}`,
       },
       {
         test: /[\\\/]pages\/tags\/.*\.jsx?$/,

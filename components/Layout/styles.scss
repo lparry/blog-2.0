@@ -6,24 +6,31 @@ html, body {
   background-color: $body-bg;
   color: $text-color;
   font-family: $font-family-base;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
 }
 
 .Layout {
-  margin: 0 auto;
-
-  a {
-    color: $link-color;
-    text-decoration: none;
-    &:hover {
-      color: $text-color;
-      text-decoration: underline;
-    }
-  }
+  margin: 0 auto 0 auto;
 }
 
 .moreLink {
   float: right;
-  margin-bottom: 50px;
   margin-right: 70px;
 }
 
