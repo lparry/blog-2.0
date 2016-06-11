@@ -6,7 +6,6 @@ import precss from "precss"
 import autoprefixer from "autoprefixer"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 
-
 // sometimes babel is retarded and tries to import css instead of letting webpack do it
 require.extensions[".scss"] = () => undefined
 require.extensions[".css"] = () => undefined
@@ -152,6 +151,14 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
+    new ExtractTextPlugin("styles.[contenthash].css"),
+    function () { // eslint-disable-line func-names
+      this.plugin("done", (stats) => {
+        require("fs").writeFileSync( // eslint-disable-line global-require
+                                    path.join(__dirname, "..", "webpackStats.json"),
+                                    JSON.stringify(stats.toJson(), null, 2))
+      })
+    },
   ],
   module: {
     loaders: [
@@ -179,7 +186,8 @@ const appConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "postcss"],
+        // loaders: ["style", "css", "postcss"],
+        loader: ExtractTextPlugin.extract("css!postcss", { allChunks: true }),
       },
     ],
   },
