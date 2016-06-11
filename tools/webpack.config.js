@@ -151,7 +151,7 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
-    new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
+    // new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -186,8 +186,8 @@ const appConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        // loaders: ["style", "css", "postcss"],
-        loader: ExtractTextPlugin.extract("css!postcss"),
+        loaders: ["style", "css", "postcss"],
+        // loader: ExtractTextPlugin.extract("css!postcss"),
       },
     ],
   },
