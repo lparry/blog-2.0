@@ -17,8 +17,11 @@ export default () => (
         />
       ))
     }
+    {pageData.previousPage &&
+      <div className="previousLink"><Link to={pageData.previousPage}>{"< Newer Stories"}</Link></div>
+    }
     {pageData.nextPage &&
-      <div className="moreLink"><Link to={pageData.nextPage}>Older Stories...</Link></div>
+      <div className="moreLink"><Link to={pageData.nextPage}>{"Older Stories >"}</Link></div>
     }
   </div>
 )
