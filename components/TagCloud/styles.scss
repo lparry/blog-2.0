@@ -1,0 +1,20 @@
+/**
+ * React Static Boilerplate
+ * https://github.com/koistya/react-static-boilerplate
+ * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
+ */
+
+@import '../variables.scss';
+
+.tagCloud__tags {
+  padding: 20px;
+}
+
+.tagCloud__tag {
+  display: inline-block;
+  padding: 3px 8px;
+  margin: 4px;
+  text-transform: capitalize;
+  background: grey;
+  border-radius: 6px;
+}

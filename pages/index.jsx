@@ -7,6 +7,7 @@
 import React from "react"
 import BlogPostSummary from "../components/BlogPostSummary"
 import Link from "../components/Link"
+import TagCloud from "../components/TagCloud"
 
 const pageData = {}
 const tags = []
@@ -28,7 +29,7 @@ export default () => {
         })
       }
       <div className="moreLink"><Link to={pageData.nextPage}>Older Stories...</Link></div>
-      {tags.map((tag, index) => <div key={index}>{tag}</div>)}
+      <TagCloud tags={tags} />
     </div>
   )
 }

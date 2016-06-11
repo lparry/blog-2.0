@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react"
+import TagCloud from "../TagCloud"
 import "./styles.scss"
 
 const BlogPost = (props) => {
@@ -12,7 +13,7 @@ const BlogPost = (props) => {
       </div>
       <div className="blogPost__tags">
         <div>Tags</div>
-        {tags.map((tag, index) => <div className="blogPost__tag" key={index}>{tag}</div>)}
+        <TagCloud tags={tags} />
       </div>
     </div>
   )
