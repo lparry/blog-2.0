@@ -5,9 +5,9 @@
  */
 
 import glob from "glob"
-import sortBy from "lodash.sortby"
-import reverse from "lodash.reverse"
 import path, { join } from "path"
+import generatePagesData from "./generatePagesData"
+
 
 module.exports = function blogLoader(source) {
   this.cacheable()
@@ -27,18 +27,7 @@ module.exports = function blogLoader(source) {
       return callback(err)
     }
 
-    const pagesData = reverse(sortBy(files.map(file => {
-      const page = require(`../../pages/blog/${file}`)
-      const metadata = page.metadata
-      return {
-        file,
-        formattedDate: metadata.formattedDate,
-        intro: page.intro,
-        path: metadata.canonicalPath,
-        tags: metadata.tags,
-        title: metadata.title,
-      }
-    }), obj => new Date(obj.date)))
+    const pagesData = generatePagesData(files)
 
     const paginationPages = pagesData.slice((paginationPageNo - 1) * perPage, paginationPageNo * perPage)
     const lastPageNo = Math.ceil(pagesData.length / perPage)
