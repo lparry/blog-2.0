@@ -15,16 +15,22 @@ Tag.propTypes = {
   tagName: PropTypes.string,
 }
 
-const TagCloud = ({ tags }) => (
-  <div className="tagCloud">
-    {tags.map((tag, index) => <Tag key={index} tagName={tag} />)}
-  </div>
-)
+const TagCloud = ({ className, tags }) => {
+  if (tags.length === 0) return null
+  return (
+    <div className={`tagCloud ${className}`}>
+      <div className="tagCloud__title"><i className="fa fa-tags fa-lg fa-fw"></i>Tags:</div>
+      {tags.map((tag, index) => <Tag key={index} tagName={tag} />)}
+    </div>
+  )
+}
 TagCloud.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
+  className: PropTypes.string,
 }
 
 TagCloud.defaultProps = {
+  className: "",
   tags: [],
 }
 

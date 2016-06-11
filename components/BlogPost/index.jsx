@@ -11,10 +11,7 @@ const BlogPost = (props) => {
       <div className="blogPost__body">
         {body}
       </div>
-      <div className="blogPost__tags">
-        <div>Tags</div>
-        <TagCloud tags={tags} />
-      </div>
+      <TagCloud className="blogPost__tags" tags={tags} />
     </div>
   )
 }
