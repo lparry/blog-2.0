@@ -2,7 +2,7 @@ import glob from "glob"
 import path from "path"
 import fs from "fs"
 import Promise from "bluebird"
-import { PER_PAGE } from "./paginated-blog-intro-loader"
+import config from "../../config"
 
 Promise.promisifyAll(fs)
 
@@ -22,10 +22,10 @@ module.exports = function tagLoader(source) {
       return callback(err)
     }
 
-    const lastPageNumber = Math.ceil(files.length / PER_PAGE)
+    const lastPageNumber = Math.ceil(files.length / config.perPage)
     if (lastPageNumber === 1) return callback(null, source)
 
-    for (let index = 2; index < lastPageNumber; index++) {
+    for (let index = 2; index <= lastPageNumber; index++) {
       const filename = path.join(__dirname, `../../pages/page/${index}.jsx`)
 
       if (!fs.existsSync(filename)) {

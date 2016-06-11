@@ -1,8 +1,7 @@
 import glob from "glob"
 import path, { join } from "path"
 import generatePagesData from "./generatePagesData"
-
-export const PER_PAGE = 5
+import config from "../../config"
 
 module.exports = function blogLoader(source) {
   this.cacheable()
@@ -23,8 +22,8 @@ module.exports = function blogLoader(source) {
 
     const pagesData = generatePagesData(files)
 
-    const paginationPages = pagesData.slice((paginationPageNo - 1) * PER_PAGE, paginationPageNo * PER_PAGE)
-    const lastPageNo = Math.ceil(pagesData.length / PER_PAGE)
+    const paginationPages = pagesData.slice((paginationPageNo - 1) * config.perPage, paginationPageNo * config.perPage)
+    const lastPageNo = Math.ceil(pagesData.length / config.perPage)
     const nextPage = paginationPageNo < lastPageNo ? `/page/${paginationPageNo + 1}` : null
     const previousPage = paginationPageNo > 3 ? `/page/${paginationPageNo - 1}` :
         (paginationPageNo === 2 ? "/" : null)
