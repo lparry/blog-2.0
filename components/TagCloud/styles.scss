@@ -6,9 +6,16 @@
 
 .tagCloud__tag {
   display: inline-block;
-  padding: 3px 8px;
-  margin: 4px;
-  text-transform: capitalize;
+  font-size: small;
+  padding: 0px 3px;
+  margin: 2px;
   background: grey;
-  border-radius: 6px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5d5d5d;
+
+  &:hover {
+    background: black;
+  }
 }

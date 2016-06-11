@@ -15,13 +15,17 @@ Tag.propTypes = {
   tagName: PropTypes.string,
 }
 
-const TagCloud = ({ tags, index }) => (
+const TagCloud = ({ tags }) => (
   <div className="tagCloud">
     {tags.map((tag, index) => <Tag key={index} tagName={tag} />)}
   </div>
 )
 TagCloud.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
+}
+
+TagCloud.defaultProps = {
+  tags: [],
 }
 
 export default TagCloud

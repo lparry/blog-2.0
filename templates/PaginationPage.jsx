@@ -7,13 +7,11 @@ const pageData = {}
 export default () => (
   <div>
     {
-      pageData.blogPosts && pageData.blogPosts.map(({ file, formattedDate, path, title }, index) => (
+      pageData.blogPosts && pageData.blogPosts.map((props, index) => (
         <BlogPostSummary
           key={index}
-          path={path}
-          title={title}
-          formattedDate={formattedDate}
-          content={require(`../blog/${file}`).intro}
+          {...props}
+          content={require(`../blog/${prop.file}`).intro}
         />
       ))
     }

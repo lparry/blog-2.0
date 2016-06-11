@@ -8,13 +8,11 @@ export default () => (
   <div>
     <h1>Posts tagged '{tag}'</h1>
     {
-      blogPosts.map(({ file, formattedDate, path, title }, index) => (
+      blogPosts.map((props, index) => (
         <BlogPostSummary
           key={index}
-          path={path}
-          title={title}
-          formattedDate={formattedDate}
-          content={require(`../blog/${file}`).intro}
+          {...props}
+          content={require(`../blog/${props.file}`).intro}
         />
       )
       )
