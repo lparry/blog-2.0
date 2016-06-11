@@ -3,11 +3,12 @@ import "./styles.scss"
 import Link from "../Link"
 import TagCloud from "../TagCloud"
 import BlogLink from "../BlogLink"
+import DateTime from "../DateTime"
 
 const BlogPostSummary = ({ path, title, formattedDate, content, tags }) => (
   <div className="blogPostSummary">
     <BlogLink path={path}>{title}</BlogLink>
-    <div className="date">{formattedDate}</div>
+    <DateTime date={formattedDate} />
     {content}
     <TagCloud tags={tags} />
     <div className="moreLink"><Link to={path}>Read More...</Link></div>

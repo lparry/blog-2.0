@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import TagCloud from "../TagCloud"
+import DateTime from "../DateTime"
 import "./styles.scss"
 
 const BlogPost = (props) => {
@@ -7,7 +8,7 @@ const BlogPost = (props) => {
   return (
     <div className="blogPost__content">
       <h1 className="blogPost__title">{title}</h1>
-      <div className="date">{formattedDate}</div>
+      <DateTime date={formattedDate} />
       <div className="blogPost__body">
         {body}
       </div>
