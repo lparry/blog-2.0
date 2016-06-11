@@ -5,8 +5,13 @@
  */
 
 import glob from "glob"
-import { join } from "path"
+import path from "path"
 import sortBy from "lodash.sortby"
+import fs from "fs"
+import Promise from "bluebird"
+Promise.promisifyAll(fs)
+
+const tagTemplate = fs.readFileSync(path.join(__dirname, "../../templates/TagPage.jsx"), "utf8")
 
 module.exports = function tagLoader(source) {
   this.cacheable()
@@ -17,7 +22,7 @@ module.exports = function tagLoader(source) {
     source = source.replace("import 'babel/polyfill';", "") // eslint-disable-line no-param-reassign
   }
 
-  glob("**/*.{js,jsx,markdown}", { cwd: join(__dirname, "../../pages/blog") }, (err, files) => {
+  glob("**/*.{js,jsx,markdown}", { cwd: path.join(__dirname, "../../pages/blog") }, (err, files) => {
     if (err) {
       return callback(err)
     }
@@ -29,6 +34,19 @@ module.exports = function tagLoader(source) {
     })
 
     const tags = sortBy(Object.keys(tagList))
+
+    tags.forEach(tag => {
+      const tagUrl = tag.toLowerCase().replace(/ /g, "-")
+      const filename = path.join(__dirname, `../../pages/tags/${tagUrl}.jsx`)
+      const contents = tagTemplate
+                       .replace(/const tag = ""/, `const tag = "${tag}"`)
+
+      if (!fs.existsSync(filename)) {
+        fs.writeFileAsync(filename, contents)
+        .catch(error => console.error(`couldn't write tag file ${tag} - ${error}`))
+      }
+    })
+
 
     if (tags.length) {
       return callback(null,
