@@ -19,8 +19,8 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
 
   return (
     <div className="flickrImage">
-      <div className="flickrImage__container">
-        <Link to={linkUrl}>
+      <Link to={linkUrl} className="flickrImage">
+        <figure className="flickrImage__figure">
           <img
             src={jpgTinyUrl}
             srcSet={`
@@ -35,9 +35,9 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
             // height={`${parseInt(height * scaleRatio, 10)}px`}
             alt={caption}
           />
-          <p className="flickrImageCaption">{caption}</p>
-        </Link>
-      </div>
+          <figcaption className="flickrImage__caption">{caption}</figcaption>
+        </figure>
+      </Link>
     </div>
   )
 }
