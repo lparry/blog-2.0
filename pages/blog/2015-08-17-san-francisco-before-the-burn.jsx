@@ -345,7 +345,7 @@ machinery and the doors actually work just fine without it, but nearly silently
 instead of the loud booming sounds.
 </p>
 
-<div className="videoWrapper"><iframe width="1280" height="720" src="https://www.youtube.com/embed/twecNQlzBW4?rel=0" frameborder="0" allowfullscreen></iframe></div>
+<div className="videoWrapper"><iframe width="1280" height="720" src="https://www.youtube.com/embed/twecNQlzBW4?rel=0" frameBorder="0" allowFullScreen></iframe></div>
 
 <p>
 They told us that the sound of those doors has been sampled and used in lots of

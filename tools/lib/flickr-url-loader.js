@@ -1,8 +1,3 @@
-/**
- * React Static Boilerplate
- * https://github.com/koistya/react-static-boilerplate
- * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
- */
 import flickrPhotoUrlLookup from "./flickr-photo-url-lookup"
 import replaceAsync from "string-replace-async"
 
