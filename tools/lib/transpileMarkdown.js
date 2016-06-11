@@ -63,6 +63,7 @@ function fixPropNames(line) {
     .replace(/ class=/g, " className=")
     .replace(/ frameborder=/, " frameBorder=")
     .replace(/allowfullscreen/, "allowFullScreen")
+    .replace(/videowrapper/, "videoWrapper")
 }
 
 function spaceFlickrImages(memo, line, index, array) {
