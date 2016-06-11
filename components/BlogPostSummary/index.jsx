@@ -6,14 +6,14 @@ import BlogLink from "../BlogLink"
 import DateTime from "../DateTime"
 
 const BlogPostSummary = ({ path, title, formattedDate, content, tags }) => (
-  <div className="blogPostSummary">
+  <section className="blogPostSummary">
     <BlogLink path={path}>{title}</BlogLink>
     <DateTime date={formattedDate} />
     {content}
     <TagCloud tags={tags} />
     <div className="moreLink"><Link to={path}>Read More...</Link></div>
     <hr className="divider" />
-  </div>
+  </section>
 )
 
 BlogPostSummary.propTypes = {
