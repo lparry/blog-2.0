@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "name": "NextLink",
+  "main": "./index.jsx"
+}

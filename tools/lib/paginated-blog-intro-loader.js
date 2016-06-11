@@ -25,7 +25,7 @@ module.exports = function blogLoader(source) {
     const paginationPages = pagesData.slice((paginationPageNo - 1) * config.perPage, paginationPageNo * config.perPage)
     const lastPageNo = Math.ceil(pagesData.length / config.perPage)
     const nextPage = paginationPageNo < lastPageNo ? `/page/${paginationPageNo + 1}` : null
-    const previousPage = paginationPageNo > 3 ? `/page/${paginationPageNo - 1}` :
+    const previousPage = paginationPageNo > 2 ? `/page/${paginationPageNo - 1}` :
         (paginationPageNo === 2 ? "/" : null)
 
     const pageData = {

@@ -1,6 +1,8 @@
 import React from "react"
 import BlogPostSummary from "../../components/BlogPostSummary"
 import Link from "../../components/Link"
+import NextLink from "../../components/NextLink"
+import PreviousLink from "../../components/PreviousLink"
 
 const pageData = {}
 
@@ -11,15 +13,11 @@ export default () => (
         <BlogPostSummary
           key={index}
           {...props}
-          content={require(`../blog/${prop.file}`).intro}
+          content={require(`../blog/${props.file}`).intro}
         />
       ))
     }
-    {pageData.previousPage &&
-      <div className="previousLink"><Link to={pageData.previousPage}>{"< Newer Stories"}</Link></div>
-    }
-    {pageData.nextPage &&
-      <div className="moreLink"><Link to={pageData.nextPage}>{"Older Stories >"}</Link></div>
-    }
+    <PreviousLink to={pageData.previousPage} />
+    <NextLink to={pageData.nextPage} />
   </div>
 )

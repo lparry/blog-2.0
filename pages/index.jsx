@@ -1,6 +1,7 @@
 import React from "react"
 import BlogPostSummary from "../components/BlogPostSummary"
 import Link from "../components/Link"
+import NextLink from "../components/NextLink"
 
 const pageData = {}
 
@@ -15,6 +16,6 @@ export default () => (
         />
       ))
     }
-    <div className="moreLink"><Link to={pageData.nextPage}>Older Stories...</Link></div>
+    <NextLink to={pageData.nextPage} />
   </div>
 )
