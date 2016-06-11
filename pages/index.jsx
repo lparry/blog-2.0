@@ -28,7 +28,7 @@ export default () => {
         })
       }
       <div className="moreLink"><Link to={pageData.nextPage}>Older Stories...</Link></div>
-      {tags.map(tag => <div>{tag}</div>)}
+      {tags.map((tag, index) => <div key={index}>{tag}</div>)}
     </div>
   )
 }

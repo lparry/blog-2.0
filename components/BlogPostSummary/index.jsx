@@ -17,7 +17,7 @@ BlogPostSummary.propTypes = {
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   formattedDate: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  content: PropTypes.node.isRequired,
 }
 
 export default BlogPostSummary

@@ -13,7 +13,7 @@ const NavLink = ({ href, children }) => (
 )
 NavLink.propTypes = {
   href: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 function Navigation() {
