@@ -15,9 +15,9 @@ Tag.propTypes = {
   tagName: PropTypes.string,
 }
 
-const TagCloud = ({ tags }) => (
+const TagCloud = ({ tags, index }) => (
   <div className="tagCloud">
-    {tags.map((tag, index) => <Tag index={index} tagName={tag} />)}
+    {tags.map((tag, index) => <Tag key={index} tagName={tag} />)}
   </div>
 )
 TagCloud.propTypes = {
