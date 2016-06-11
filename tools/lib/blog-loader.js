@@ -18,7 +18,7 @@ module.exports = function blogLoader(source) {
     source = source.replace("import 'babel/polyfill';", "") // eslint-disable-line no-param-reassign
   }
 
-  glob("**/*.{js,jsx,markdown}", { cwd: join(__dirname, "../../pages/blog") }, (err, files) => {
+  glob("**/*.{js,jsx}", { cwd: join(__dirname, "../../pages/blog") }, (err, files) => {
     if (err) {
       return callback(err)
     }
