@@ -57,6 +57,10 @@ function lineHasDiv(line) {
   return !!(line.match(/<div/))
 }
 
+function lineIsImage(line) {
+  return lineIsFlickrImage(line) || lineIsOtherImage(line)
+}
+
 function paragraphize(memo, line, index, array) {
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
@@ -70,9 +74,9 @@ function paragraphize(memo, line, index, array) {
     memo.push(`<Photo src="${photoSrc}" caption="${caption}" />`)
   } else {
     if (index === 0) { memo.push("<p>") }
-    if (line === "" && !lineIsFlickrImage(array[index - 1]) && !lineHasDiv(array[index - 1])) { memo.push("</p>") }
+    if (line === "" && !lineIsImage(array[index - 1]) && !lineHasDiv(array[index - 1])) { memo.push("</p>") }
     memo.push(line)
-    if (line === "" && !lineIsFlickrImage(array[index + 1]) && !lineHasDiv(array[index + 1])) { memo.push("<p>") }
+    if (line === "" && !lineIsImage(array[index + 1]) && !lineHasDiv(array[index + 1])) { memo.push("<p>") }
     if (index === (array.length - 1)) { memo.push("</p>") }
   }
   return memo

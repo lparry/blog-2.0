@@ -66,8 +66,7 @@ Aside from the antics I witnessed from inside the cage, I was also privileged en
 
 On the way back to shore we went through a channel called "Shark Alley". We didn't see any sharks, but the rocks along the side were covered in literally 1000's of seals! Everywhere you looked there was blubber flapping around. I can imagine it's like a buffet for the sharks!
 
-<p class="flickr-image-container"><span class="polaroid"><img src="http://newswatch.nationalgeographic.com/files/2012/01/IMG_5963-950x585.jpg" class="img-responsive" >
-<em>Seals in Shark Alley - Another shamelessly stolen image</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="http://newswatch.nationalgeographic.com/files/2012/01/IMG_5963-950x585.jpg" class="img-responsive" ><em>Seals in Shark Alley - Another shamelessly stolen image</em></span></p>
 
 That evening I met up with Erin again for gelati, an odd choice for the middle of winter but it was her last night in Cape Town and it was a delicious choice.
 
