@@ -3,13 +3,8 @@ import GoogleAnalytics from "../GoogleAnalytics"
 import config from "../../config"
 
 import webpackStats from "../../webpackStats.json"
-// const webpackStats = {
-//   assetsByChunkName: {
-//     main: [],
-//   },
-// }
 
-function Html({ title, description, body, debug }) {
+function Html({ title, description, body }) {
   return (
     <html className="no-js" lang="">
       <head>
