@@ -6,7 +6,7 @@ tags: humblebrag, retrospective
 travel_dates: 
 ---
 
-<p class="flickr-image-container"><span class="polaroid"><img src="/images/first-birthday-cake.jpg" alt="birthday cake" class="img-responsive"></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="/one-year/first-birthday-cake.jpg" alt="One Year On the Road!" class="img-responsive"></span></p>
 
 So today marks my first travel birthday. One year ago today I boarded my first
 flight of this trip, leaving my home in Melbourne and headed out to see the

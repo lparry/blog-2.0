@@ -66,9 +66,9 @@ function paragraphize(memo, line, index, array) {
     const photoSrc = extractPhotoSrc(line)
     if (!photoSrc) throw new Error(`src line ${line}`)
     const caption = escapeQuotes(extractPhotoCaption(line))
+    console.log(photoSrc, caption)
     memo.push(`<Photo src="${photoSrc}" caption="${caption}" />`)
   } else {
-    if (index === 0) { memo.push("<p>") }
     if (index === 0) { memo.push("<p>") }
     if (line === "" && !lineIsFlickrImage(array[index - 1]) && !lineHasDiv(array[index - 1])) { memo.push("</p>") }
     memo.push(line)
@@ -173,22 +173,22 @@ export function parseLegacyMarkdown(source) {
 
 const jsxify = (data) => (
   `import React from "react"
-   ${data.body.match(/<FlickrImageLegacy/) ? 'import FlickrImageLegacy from "../../components/FlickrImageLegacy"' : ''}
-   ${data.body.match(/<Photo/) ? 'import Photo from "../../components/Photo"' : ''}
-   import BlogPost from "../../components/BlogPost"
+${data.body.match(/<FlickrImageLegacy/) ? 'import FlickrImageLegacy from "../../components/FlickrImageLegacy"' : ''}
+${data.body.match(/<Photo/) ? 'import Photo from "../../components/Photo"' : ''}
+import BlogPost from "../../components/BlogPost"
 
-   export const metadata = ${JSON.stringify(data.meta, null, 2)}
+export const metadata = ${JSON.stringify(data.meta, null, 2)}
 
-   export const intro = <div className="postIntro">
-   ${data.intro}
-   </div>
+export const intro = <div className="postIntro">
+${data.intro}
+</div>
 
-   export const body = <div className="postBody">
-   ${data.body}
-   </div>
-   const blogPages = []
+export const body = <div className="postBody">
+${data.body}
+</div>
+const blogPages = []
 
-   export default () => <BlogPost metadata={metadata} body={body} />` // eslint-disable-line max-len
+export default () => <BlogPost metadata={metadata} body={body} />` // eslint-disable-line max-len
 )
 
 export default function markdownTranspiler(file) {
