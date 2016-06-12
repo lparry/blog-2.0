@@ -10,5 +10,6 @@ import Promise from "bluebird"
 export default task(async function copy() {
   await Promise.promisify(mkdirp)("build/assets")
   await cp("cache/flickr-responsive", "build/assets/flickr")
+  await cp("cache/images-responsive", "build/assets/images")
   await cp("static", "build")
 })

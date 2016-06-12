@@ -69,7 +69,7 @@ but it was apparently ok to go along just for the day, so I did. They were up to
 week 3 of the current course, so perhaps it wasn't the best place to start but I
 gave it a go anyway.
 
-<p class="flickr-image-container"><span class="polaroid"><img src="/images/sanmarcos/tumblr_lw1ymvkD9W1qh2i8s.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of the big meditation pyramid</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="/san-marcos/mediatation-pyramid.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of the big meditation pyramid</em></span></p>
 
 The big pyramid temple has a strange entrance where you go down steps
 underground, then back up steps into the temple through a hole in the floor.
@@ -77,7 +77,7 @@ Once everyone is inside the floor folds over the entrance like a cellar, so
 you're in a sealed up pyramid. There were some windows higher up letting in
 light, but there's no chance of leaving early.
 
-<p class="flickr-image-container"><span class="polaroid"><img src="/images/sanmarcos/one-of-the-meditation.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of pyramids within pyramids</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="/san-marcos/inside-pyramid.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of pyramids within pyramids</em></span></p>
 
 In each corner of the pyramid, there were smaller pyramids, and in the centre of
 the room there was a bigger one covered over by a piece of cloth. Once the
@@ -87,7 +87,7 @@ top of the centre pyramid. New age mystical!
 There were about 25 people in the room, sitting around the edges facing in, each
 with a little padded mat and a little wooden slanted stool to sit on.
 
-<p class="flickr-image-container"><span class="polaroid"><img src="/images/sanmarcos/contact.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of inside the pyramid</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="/san-marcos/inside-pyramid-up.jpg" width="800" height="601" alt="Lake Atitlan" class="img-responsive"><em>A stolen photo of inside the pyramid</em></span></p>
 
 The session started with 30 minutes of silent meditation, where we were told to
 focus on our breathing. It was quite a challenge for someone who's never tried
