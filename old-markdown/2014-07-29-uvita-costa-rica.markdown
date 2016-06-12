@@ -41,9 +41,7 @@ mistake as my feet were torn to shreds, and once I got close to the drop off the
 size of the swell smashing into the rocks made it appear way too unsafe to get
 out that way anyway.
 
-<p class="flickr-image-container"><span class="polaroid">
-<img src="http://jameskaiser.com/wp-content/uploads/UvitaWhaleTail.jpg">
-<em>Shamelessly stolen photo of the whale tail</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="http://jameskaiser.com/wp-content/uploads/UvitaWhaleTail.jpg"><em>Shamelessly stolen photo of the whale tail</em></span></p>
 
 I ended up going all the way back into the sandy part of the tail, and then
 snorkelling out along the edge of the rocks. The visibility for the first 20
@@ -71,9 +69,7 @@ eliminate the slightest chance of feeling seasick cause there are few sensations
 worse.
 
 
-<p class="flickr-image-container"><span class="polaroid">
-<img src="http://www.transportesmaritimoslapicolina.com/wp-content/uploads/2013/07/Nature-6231.jpg">
-<em>Shamelessly stolen photo of sharks</em><em>(because I have no underwater camera)</em></span></p>
+<p class="flickr-image-container"><span class="polaroid"><img src="http://www.transportesmaritimoslapicolina.com/wp-content/uploads/2013/07/Nature-6231.jpg"><em>Shamelessly stolen photo of sharks</em><em>(because I have no underwater camera)</em></span></p>
 
 On the first dive we got to the bottom of the buoy line and there was 2 white
 tip reef sharks waiting there for us on the bottom, who chilled out for a bit
