@@ -29,7 +29,7 @@ gulp.task("default", () => {
             format: "jpeg",
             width: 1024,
             quality: 80,
-            rename: { extname: ".webp" },
+            rename: { extname: ".jpg" },
           },
           {
             format: "jpeg",

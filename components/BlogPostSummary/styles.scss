@@ -1,6 +1,16 @@
 @import '../variables.scss';
 
-hr.divider {
+
+.blogPostSummary p {
+  text-align: justify;
+}
+
+.blogPostSummary__moreLink {
+  float: right;
+  margin: 0 20px 30px 0;
+}
+
+.blogPostSummary__divider {
   clear: both;
   border: 0;
   height: 1px;
@@ -9,10 +19,6 @@ hr.divider {
   margin: 30px 0 50px 0;
 }
 
-.blogPostSummary p {
-  text-align: justify;
-}
-
-section:last-of-type hr {
+section:last-of-type .blogPostSummary__divider {
   display: none;
 }

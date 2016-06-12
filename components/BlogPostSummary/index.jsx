@@ -11,8 +11,8 @@ const BlogPostSummary = ({ path, title, formattedDate, content, tags }) => (
     <DateTime date={formattedDate} />
     {content}
     <TagCloud tags={tags} />
-    <div className="moreLink"><Link to={path}>Read More...</Link></div>
-    <hr className="divider" />
+    <div className="blogPostSummary__moreLink"><Link to={path}>Read More...</Link></div>
+    <hr className="blogPostSummary__divider" />
   </section>
 )
 
