@@ -16,10 +16,8 @@ Well.defaultProps = {
 const Sidebar = () => (
   <div className="sidebar">
     <Well className="sidebar__about">
-      <img src="http://www.lucasthenomad.com/images/avatar.jpg" />
-
       <h3><i className="fa fa-info-circle fa-lg fa-fw"></i> About Lucas</h3>
-
+      <img src="http://www.lucasthenomad.com/images/avatar.jpg" />
       <p>
         An account of Lucas' epic travels, exciting adventures, challenging
         misfortunes and lucky breaks. They rarely happen with to any real plan,

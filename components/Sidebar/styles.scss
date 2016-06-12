@@ -32,8 +32,14 @@
 
 .sidebar__about {
   p {
+    clear: left;
     font-size: smaller;
     text-align: justify;
+  }
+
+  h3 {
+    float: left;
+    white-space: nowrap;
   }
 
   img {
