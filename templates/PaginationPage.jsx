@@ -3,6 +3,7 @@ import BlogPostSummary from "../../components/BlogPostSummary"
 import Link from "../../components/Link"
 import NextLink from "../../components/NextLink"
 import PreviousLink from "../../components/PreviousLink"
+import ClearFix from "../../components/ClearFix"
 
 const pageData = {}
 
@@ -17,6 +18,7 @@ export default () => (
         />
       ))
     }
+    <ClearFix />
     <PreviousLink to={pageData.previousPage} />
     <NextLink to={pageData.nextPage} />
   </div>

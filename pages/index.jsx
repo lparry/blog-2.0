@@ -1,6 +1,7 @@
 import React from "react"
 import BlogPostSummary from "../components/BlogPostSummary"
 import Link from "../components/Link"
+import ClearFix from "../components/ClearFix"
 import NextLink from "../components/NextLink"
 
 const pageData = {}
@@ -16,6 +17,7 @@ export default () => (
         />
       ))
     }
+    <ClearFix />
     <NextLink to={pageData.nextPage} />
   </div>
 )
