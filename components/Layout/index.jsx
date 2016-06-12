@@ -5,10 +5,10 @@ import Sidebar from "../Sidebar"
 
 function Layout({ children }) {
   return (
-    <div>
+    <div className="root">
       <Navigation />
       <div className="content">
-        <div className="Layout">
+        <div className="layout">
           {children}
         </div>
         <Sidebar />

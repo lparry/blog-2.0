@@ -1,10 +1,12 @@
 @import '../variables.scss';
 
 .sidebar {
-  min-width: 300px;
-  max-width: 20%;
+  display: flex;
   min-height: 100%;
   margin: 0 auto;
+  flex-direction: column;
+  max-width: 20%;
+  min-width: 300px;
 }
 
 .sidebar__well {
@@ -43,3 +45,24 @@
     border-color: grey;
   }
 }
+
+@media (max-width: 1622px) {
+  .sidebar {
+    flex-direction: row-reverse;
+    max-width: 100%;
+    min-width: 100px;
+  }
+
+  .sidebar__well {
+    margin: 10px;
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .sidebar {
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100px;
+  }
+}
+

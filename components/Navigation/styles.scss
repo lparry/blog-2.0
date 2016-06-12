@@ -47,14 +47,8 @@
   }
 }
 
-@media (min-width: $screen-sm-min) {
+@media (max-width: $screen-md-min) {
   .navbar__link--hideable {
     display: none;
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  .navbar__link--hideable {
-    display: flex;
   }
 }
