@@ -51,4 +51,10 @@
   .navbar__link--hideable {
     display: none;
   }
+
+  .navbar__link {
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-left: 10px;
+  }
 }
