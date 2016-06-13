@@ -6,7 +6,7 @@ import Html from "../components/Html"
 import task from "./lib/task"
 import fs from "./lib/fs"
 
-const DEBUG = !process.argv.includes("release")
+const isDebug = !(process.argv.includes("--release") || process.argv.includes("-r"))
 
 function getPages() {
   return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ async function renderPage(page, component) {
   const file = join(__dirname,
                     "../build",
                     `${page.path}/index.html`)
-  const html = `<!doctype html>\n${ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />)}`
+  const html = `<!doctype html>\n${ReactDOM.renderToStaticMarkup(<Html debug={isDebug} {...data} />)}`
   await fs.mkdir(dirname(file))
   await fs.writeFile(file, html)
 }

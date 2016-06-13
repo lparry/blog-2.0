@@ -30,7 +30,7 @@ export default task(async function deploy() {
 
   // Build the project in RELEASE mode which
   // generates optimized and minimized bundles
-  process.argv.push("release")
+  process.argv.push("--release")
   await build()
 
   childProcess.execAsync("echo 'www.lucasthenomad.com' > CNAME", { cwd: path.resolve(__dirname, "../build") })

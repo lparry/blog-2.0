@@ -4,25 +4,15 @@ import merge from "lodash.merge"
 import postcssImport from "postcss-import"
 import precss from "precss"
 import autoprefixer from "autoprefixer"
-import ExtractTextPlugin from "extract-text-webpack-plugin"
+
+const isDebug = !(process.argv.includes("--release") || process.argv.includes("-r"))
+const isVerbose = process.argv.includes("--verbose") || process.argv.includes("-v")
 
 // sometimes babel is retarded and tries to import css instead of letting webpack do it
 require.extensions[".scss"] = () => undefined
 require.extensions[".css"] = () => undefined
 
-const DEBUG = !process.argv.includes("release")
-const VERBOSE = process.argv.includes("verbose")
 const WATCH = global.watch
-const AUTOPREFIXER_BROWSERS = [
-  "Android 2.3",
-  "Android >= 4",
-  "Chrome >= 35",
-  "Firefox >= 31",
-  "Explorer >= 9",
-  "iOS >= 7",
-  "Opera >= 12",
-  "Safari >= 7.1",
-]
 const JS_LOADER = {
   test: /\.jsx?$/,
   include: [
@@ -44,23 +34,23 @@ const config = {
     sourcePrefix: "  ",
   },
   cache: false,
-  debug: DEBUG,
+  debug: isDebug,
   stats: {
     colors: true,
-    reasons: DEBUG,
-    hash: VERBOSE,
-    version: VERBOSE,
+    reasons: isDebug,
+    hash: isVerbose,
+    version: isVerbose,
     timings: true,
-    chunks: VERBOSE,
-    chunkModules: VERBOSE,
-    cached: VERBOSE,
-    cachedAssets: VERBOSE,
+    chunks: isVerbose,
+    chunkModules: isVerbose,
+    cached: isVerbose,
+    cachedAssets: isVerbose,
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": DEBUG ? "\"development\"" : "\"production\"",
-      __DEV__: DEBUG,
+      "process.env.NODE_ENV": isDebug ? "\"development\"" : "\"production\"",
+      __DEV__: isDebug,
     }),
   ],
   module: {
@@ -112,7 +102,7 @@ const config = {
       postcssImport({ addDependencyTo: bundler }),
       precss(),
       autoprefixer({
-        browsers: AUTOPREFIXER_BROWSERS,
+        browsers: ["last 2 versions"],
       }),
     ]
   },
@@ -135,14 +125,14 @@ const appConfig = merge({}, config, {
     filename: "app.js",
   },
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: DEBUG ? "cheap-module-eval-source-map" : false,
+  devtool: isDebug ? "cheap-module-eval-source-map" : false,
   plugins: [
     ...config.plugins,
-    ...(DEBUG ? [] : [
+    ...(isDebug ? [] : [
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
-          warnings: VERBOSE,
+          warnings: isVerbose,
         },
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
@@ -151,7 +141,6 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
-    new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -186,8 +175,7 @@ const appConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        // loaders: ["style", "css", "postcss"],
-        loader: ExtractTextPlugin.extract("css!postcss"),
+        loaders: ["style", "css", "postcss"],
       },
     ],
   },
@@ -215,7 +203,8 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new ExtractTextPlugin("styles.[contenthash].css", { allChunks: true }),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -230,7 +219,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css!postcss"),
+        loaders: ["css", "postcss"],
       },
     ],
   },
