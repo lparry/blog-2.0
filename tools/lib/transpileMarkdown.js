@@ -54,6 +54,10 @@ function extractFlickrImageDetails(line) {
   }
 }
 
+function replaceMarkdownLinks(line) {
+  return line.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (_, text, url) => `<a href="${url}">${text}</a>`)
+}
+
 function escapeQuotes(str) {
   return str.replace(/"/g, "&quot;")
 }
@@ -108,6 +112,7 @@ function spaceFlickrImages(memo, line, index, array) {
 function format(source) {
   return source
     .split("\n")
+    .map(replaceMarkdownLinks)
     .reduce(spaceFlickrImages, [])
     .reduce(paragraphize, [])
     .map(fixPropNames)
