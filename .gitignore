@@ -8,3 +8,5 @@ npm-debug.log
 flickr-data
 .DS_Store
 npm-debug.log.*
+cache/flickr-responsive
+cache/images-responsive
