@@ -31,20 +31,20 @@ instead of just supplementing it with a proper day pack.
 
 Options I'm considering now (looking mostly within the same brand) are:
 
-## Osprey Porter 46 + Some decent day pack
+<h3>Osprey Porter 46 + Some decent day pack</h3>
 
 15% larger, all in a single compartment rather than spit in two. This one still
 claims to be within maximum carry-on size allowed on most airlines. Not sure
 about which day pack to pair this with.
 
-## Osprey Farpoint 55
+<h3>Osprey Farpoint 55</h3>
 
 I've read this is basically the bag I've got, except with a 15L daypack that
 attaches on the back making up the extra 15L. I'd want to have a look and see
 that it's not wasting space with another laptop pocket in the main bag, since
 that'll be in the day pack.
 
-## Osprey Waypoint 65
+<h3>Osprey Waypoint 65</h3>
 
 50L Pack + 15L daypack. I wonder if as long as I'm resigning myself to always
 having checked luggage, maybe I should just make the jump to a pack where I'll
