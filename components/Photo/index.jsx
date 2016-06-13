@@ -24,7 +24,7 @@ const Photo = ({ src, caption, linkUrl }) => {
 }
 Photo.propTypes = {
   src: PropTypes.string.isRequired,
-  linkUrl: PropTypes.string.isRequired,
+  linkUrl: PropTypes.string,
   caption: PropTypes.string,
 }
 export default Photo
