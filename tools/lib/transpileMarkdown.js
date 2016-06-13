@@ -172,8 +172,12 @@ export function parseLegacyMarkdown(source) {
   const nicerBody = body ? format(body) : ""
 
   const replaceLinks = (content, url) => content.replace(/linkUrl="[^"]*"/g, `linkUrl="${url}"`)
+  const insertPhotoLinks = (content, url) => content.replace(/<Photo /g, `<Photo linkUrl="${url}"`)
 
-  return { intro: replaceLinks(nicerIntro, nicerMeta.canonicalPath), body: [nicerIntro, nicerBody].join("\n"), meta: nicerMeta }
+  return {
+    intro: insertPhotoLinks(replaceLinks(nicerIntro, nicerMeta.canonicalPath), nicerMeta.canonicalPath),
+    body: [nicerIntro, nicerBody].join("\n"), meta: nicerMeta,
+  }
 }
 
 const jsxify = (data) => (

@@ -10,9 +10,15 @@ const Photo = ({ src, caption, linkUrl }) => {
 
   return (
     <div className="photo">
-      <Link to={linkUrl}>
-        <ResponsiveImage baseKey={baseKey} caption={caption} prefix="images" manifest={imageManifest} />
-      </Link>
+      {
+        linkUrl ?
+          <Link to={linkUrl}>
+            <ResponsiveImage baseKey={baseKey} caption={caption} prefix="images" manifest={imageManifest} />
+          </Link>
+        :
+          <ResponsiveImage baseKey={baseKey} caption={caption} prefix="images" manifest={imageManifest} />
+        }
+
     </div>
   )
 }
@@ -20,8 +26,5 @@ Photo.propTypes = {
   src: PropTypes.string.isRequired,
   linkUrl: PropTypes.string.isRequired,
   caption: PropTypes.string,
-}
-Photo.defaultProps = {
-  linkUrl: "#",
 }
 export default Photo
