@@ -4,6 +4,7 @@ import merge from "lodash.merge"
 import postcssImport from "postcss-import"
 import precss from "precss"
 import autoprefixer from "autoprefixer"
+import ExtractTextPlugin from "extract-text-webpack-plugin"
 
 const isDebug = !(process.argv.includes("--release") || process.argv.includes("-r"))
 const isVerbose = process.argv.includes("--verbose") || process.argv.includes("-v")
@@ -141,6 +142,7 @@ const appConfig = merge({}, config, {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : []),
+    new ExtractTextPlugin("styles.css", { allChunks: true }),
     function () { // eslint-disable-line func-names
       this.plugin("done", (stats) => {
         require("fs").writeFileSync( // eslint-disable-line global-require
@@ -175,7 +177,7 @@ const appConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "postcss"],
+        loader: ExtractTextPlugin.extract("css!postcss"),
       },
     ],
   },
@@ -203,6 +205,7 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+    new ExtractTextPlugin("styles.css", { allChunks: true }),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     function () { // eslint-disable-line func-names
@@ -219,7 +222,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loaders: ["css", "postcss"],
+        loader: ExtractTextPlugin.extract("css!postcss"),
       },
     ],
   },
