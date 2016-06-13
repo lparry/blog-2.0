@@ -24,8 +24,7 @@ I've ever had. Impulsive travel planning at it's best.
 
 <a href="http://www.flickr.com/photos/lucasthenomad/14349420794/in/set-72157645015360162" title="Finca Mia by Lucas the nomad, on Flickr"><img src="http://farm4.staticflickr.com/3865/14349420794_0733e78d5a_c.jpg" width="800" height="533" alt="Finca Mia"></a>
 
-It was held at a property right next to [Cerro
-Chirripó](http://en.wikipedia.org/wiki/Cerro_Chirrip%C3%B3) called Finca Mia, a
+It was held at a property right next to [Cerro Chirripó](http://en.wikipedia.org/wiki/Cerro_Chirrip%C3%B3) called Finca Mia, a
 beautiful eco-retreat up in the hills, with a pretty little river running
 through the property.
 
@@ -150,8 +149,7 @@ this is seriously underdeveloped.
 
 <a href="http://www.flickr.com/photos/lucasthenomad/14165065470/in/set-72157645015360162" title="Lightning wizard by Lucas the nomad, on Flickr"><img src="http://farm3.staticflickr.com/2922/14165065470_5a415cf914_c.jpg" width="800" height="534" alt="Lightning wizard"></a>
 
-Nick had a set of [Pyroterra Visual
-Poi](http://lighttoys.pyroterra.cz/visual-poi-staff-v3/) at the retreat which he
+Nick had a set of [Pyroterra Visual Poi](http://lighttoys.pyroterra.cz/visual-poi-staff-v3/) at the retreat which he
 was kind enough to let me have a go of. From the first time I saw these on a
 video on Youtube I've been in awe, and then when I saw the $1500 price I was in
 even more awe. Getting to actually spin them was amazingly, fun and kind of

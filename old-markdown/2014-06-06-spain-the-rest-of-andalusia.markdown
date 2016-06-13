@@ -106,8 +106,7 @@ all the water drained out.
 
 <a href="http://www.flickr.com/photos/lucasthenomad/13921314810/in/set-72157644463351646" title="Plaza de España by Lucas the nomad, on Flickr"><img src="http://farm8.staticflickr.com/7413/13921314810_d89de7e826_c.jpg" width="800" height="601" alt="Plaza de España"></a>
 
-They did however recommend a fancy tapas place called [La
-Azotea](http://laazoteasevilla.es/) which was absolutely fantastic. I had some
+They did however recommend a fancy tapas place called [La Azotea](http://laazoteasevilla.es/) which was absolutely fantastic. I had some
 smoked cheese, cooked wild mushrooms, and pork cheek; and all of it was amazing.
 It was hands down the nicest tapas I came across; so good that I came back again
 for dinner the same day.
@@ -142,8 +141,7 @@ of the palace very much.
 In the evening I went and explored one of the stranger, modern attractions of
 Seville: The Metropol Parasol. It's a huge wooden structure, several stories
 high, apparently the largest wooden structure in the world. It looks kind of
-like those [wooden dinosaur
-kits](https://www.google.com/search?q=wood+dinosaur+kit&tbm=isch) you'd beg for
+like those [wooden dinosaur kits](https://www.google.com/search?q=wood+dinosaur+kit&tbm=isch) you'd beg for
 at museums when you were a kid (or was that just me?), except instead of a
 dinosaur they got some crazy mushroom looking thing.
 

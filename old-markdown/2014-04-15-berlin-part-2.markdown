@@ -21,8 +21,7 @@ be quite heavily street art focused.
 <!-- more -->
 
 On one of my many aimless explorations I stumbled upon some buskers playing in
-the street who were drawing quite a crowd.  A band called [The Trouble
-Notes](http://www.thetroublenotes.com/). One guy planing an electric violin, one
+the street who were drawing quite a crowd.  A band called [The Trouble Notes](http://www.thetroublenotes.com/). One guy planing an electric violin, one
 guy finger picking the heck out of a guitar while also using it as a percussion
 instrument, and another dude sitting on a unique drum that was just kind of a
 square box. They had a very beautiful sound and were so damn good I stopped and

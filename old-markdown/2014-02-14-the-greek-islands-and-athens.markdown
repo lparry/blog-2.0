@@ -72,8 +72,7 @@ detailed record to look back at when I'm old and my memory is failing, and I
 like to think at least my mum enjoys reading them.
 
 My next island was Ikaria, an island I'd heard about from another traveller who
-told me how they had some of [the longest lifespans in the
-world](http://www.npr.org/templates/story/story.php?storyId=103744881) because
+told me how they had some of [the longest lifespans in the world](http://www.npr.org/templates/story/story.php?storyId=103744881) because
 everyone was super laid back (I was told that shops would "close" but leave the
 doors open and unattended, so you could leave the money for your purchase on the
 counter if you needed something).

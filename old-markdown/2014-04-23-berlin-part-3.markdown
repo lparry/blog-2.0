@@ -115,10 +115,8 @@ looking little indoor market.
 <a href="https://www.flickr.com/photos/lucasthenomad/11224583626" title="Collapsed bridge in front of the wheel by Lucas Parry, on Flickr"><img src="https://farm3.staticflickr.com/2853/11224583626_70108cfed5_c.jpg" width="601" height="800" alt="Collapsed bridge in front of the wheel"></a>
 
 It was around this time I went and spent a day exploring Spreepark, an old
-abandoned theme park in a pretty derelict state that I [blogged about earlier
-here](http://www.lucasthenomad.com/2013/12/05/spreepark-Berlin). Just recently I
-saw [this
-article](http://www.smithsonianmag.com/smart-news/berlin-just-bought-abandoned-theme-park-180950287/)
+abandoned theme park in a pretty derelict state that I [blogged about earlier here](http://www.lucasthenomad.com/2013/12/05/spreepark-Berlin). Just recently I
+saw [this article](http://www.smithsonianmag.com/smart-news/berlin-just-bought-abandoned-theme-park-180950287/)
 saying that the city of Berlin has now bought the park, so I may have gotten in
 just in time to see it before it gets redeveloped into something else.
 

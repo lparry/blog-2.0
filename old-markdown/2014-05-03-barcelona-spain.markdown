@@ -269,13 +269,11 @@ imagine the rainbow this place will be when all the windows are done.
 
 I just love all the clean complexity of all the shapes involved, with so much of
 it coming from fairly simple math and geometry concepts. The columns for example
-are [double
-twisted](http://www.sagradafamilia.cat/sf-eng/docs_instit/geometria1.php),
+are [double twisted](http://www.sagradafamilia.cat/sf-eng/docs_instit/geometria1.php),
 meaning that they have twice as many "sides" at their tops than they
 do at the bottom, and there's no sudden point where this shape change takes
 place. There was a video of the machine they used to produce them and it was
-mesmerizing to watch. [The whole geometry
-section](http://www.sagradafamilia.cat/sf-eng/docs_instit/geometria1.php) of the
+mesmerizing to watch. [The whole geometry section](http://www.sagradafamilia.cat/sf-eng/docs_instit/geometria1.php) of the
 official site is worth checking out if you like that kind of stuff.
 
 <a href="http://www.flickr.com/photos/lucasthenomad/13810328804/in/set-72157643866689355" title="Rainbow pillars by Lucas the nomad, on Flickr"><img src="http://farm3.staticflickr.com/2919/13810328804_7ac1795f11_c.jpg" width="601" height="800" alt="Rainbow pillars"></a>

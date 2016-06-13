@@ -48,8 +48,7 @@ The guy is like one of those self made success stories you'd read about in a
 magazine. He started off with a travel blog, and then worked out how to make
 very decent money online through SEO marketing. He had visited 114 countries
 when I met him (now 141 with the slow rate I update my blog), and plans to visit
-every country in the world in the next few years. I'll chuck in a plug for [his
-website](http://onestep4ward.com) in case you want to see for yourself.
+every country in the world in the next few years. I'll chuck in a plug for [his website](http://onestep4ward.com) in case you want to see for yourself.
 
 It was really interesting to talk to someone who's been on the road so long, a
 whole lot more insightful than the average backpacker about the difficulties and

@@ -36,8 +36,7 @@ omission at subsequent breakfasts.
 <a href="http://www.flickr.com/photos/lucasthenomad/12842520403/in/set-72157641676939995" title="Real English Breakfast by Lucas the nomad, on Flickr"><img src="http://farm8.staticflickr.com/7302/12842520403_d7bb632171_c.jpg" width="709" height="800" alt="Real English Breakfast"></a>
 
 After breakfast we headed up to Nottingham castle for the event that drew me to
-England at this time, [The Robin Hood Beer
-Festival](http://www.beerfestival.nottinghamcamra.org/). It's a "real ale"
+England at this time, [The Robin Hood Beer Festival](http://www.beerfestival.nottinghamcamra.org/). It's a "real ale"
 festival run by [CAMRA](http://www.camra.org.uk/), offering over 1,100 casks of
 ale to sample, and about 300 ciders for those with no taste (Sorry Amanda
 :P). They had 900 casks of ale tapped at any one time, with the others
@@ -83,8 +82,7 @@ and worked out that even just a 30ml shot of each beer would have meant drinking
 over 30 litres. Australians like to drink, but even we aren't that stupid.
 
 
-We left the festival in the early evening and made a stop in at [Ye Old Trip To
-Jerusalem](http://en.wikipedia.org/wiki/Ye_Olde_Trip_To_Jerusalem), one of
+We left the festival in the early evening and made a stop in at [Ye Old Trip To Jerusalem](http://en.wikipedia.org/wiki/Ye_Olde_Trip_To_Jerusalem), one of
 several pubs that claims to be the oldest in the UK. They claim to have been
 serving beer there since 1189AD. The pub is partly carved out of a sandstone
 cave, giving it a cosy atmosphere. It's mind-blowing to think that people have
@@ -135,8 +133,7 @@ two. It turns out you need a fair bit of space for 1100 casks of beer!
 
 <a href="http://www.flickr.com/photos/lucasthenomad/12842759953/in/set-72157641676939995" title="Even more casks today by Lucas the nomad, on Flickr"><img src="http://farm3.staticflickr.com/2883/12842759953_136d0e8363_c.jpg" width="800" height="601" alt="Even more casks today"></a>
 
-My favourite beer of the festival was [Bateman's Hazelnut
-Brownie](http://www.bateman.co.uk/our+brewery/our+beers/speciality+cask+beers);
+My favourite beer of the festival was [Bateman's Hazelnut Brownie](http://www.bateman.co.uk/our+brewery/our+beers/speciality+cask+beers);
 a sweet, rich syrupy beer with delicious chocolaty aroma. The name was pretty
 much spot on describing how it smelt and tasted. It was not a session beer, but
 it was nice to have a small glass of.
@@ -269,8 +266,7 @@ much much better.
 
 We spent the morning touring around Bristol some more, checking out the immense
 amounts of great street art that decorates the city. I highly recommend checking
-out the [Flickr gallery for this
-post](http://www.flickr.com/photos/lucasthenomad/sets/72157641676939995/) if you
+out the [Flickr gallery for this post](http://www.flickr.com/photos/lucasthenomad/sets/72157641676939995/) if you
 like graffiti.
 
 <a href="http://www.flickr.com/photos/lucasthenomad/12845219593/in/set-72157641676939995" title="Bristol street art by Lucas the nomad, on Flickr"><img src="http://farm8.staticflickr.com/7402/12845219593_e11b4bf64c_c.jpg" width="601" height="800" alt="Bristol street art"></a>
