@@ -5,7 +5,7 @@ import DisqusComments from "../DisqusComments"
 import "./styles.scss"
 
 const BlogPost = (props) => {
-  const { body, metadata: { title, formattedDate, tags, canonicalPath } } = props
+  const { body, metadata: { title, formattedDate, tags, canonicalPath, oldBlogUrl } } = props
   return (
     <div className="blogPost__content">
       <h1 className="blogPost__title">{title}</h1>
@@ -14,7 +14,7 @@ const BlogPost = (props) => {
         {body}
       </div>
       <TagCloud className="blogPost__tags" tags={tags} />
-      <DisqusComments disqusUrl={`http://www.lucasthenomad.com${canonicalPath}`} />
+      <DisqusComments disqusUrl={`http://www.lucasthenomad.com${oldBlogUrl || canonicalPath}`} />
     </div>
   )
 }
