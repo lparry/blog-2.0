@@ -10,7 +10,7 @@ const BlogPostSummary = ({ path, title, formattedDate, content, tags }) => (
     <BlogLink path={path}>{title}</BlogLink>
     <DateTime date={formattedDate} />
     {content}
-    <TagCloud tags={tags} />
+    <TagCloud className="blogPostSummary__tags" tags={tags} />
     <div className="blogPostSummary__moreLink"><Link to={path}>Read More...</Link></div>
     <hr className="blogPostSummary__divider" />
   </section>
