@@ -17,7 +17,7 @@ function Html({ title, description, body }) {
         <link rel="stylesheet" type="text/css" href={`/${webpackStats.assetsByChunkName.main[1]}`} />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo|Roboto" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-        <script async src={`/${webpackStats.assetsByChunkName.main[1]}`} />
+        <script src={`/${webpackStats.assetsByChunkName.main[0]}`} />
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{ __html: body }} />
