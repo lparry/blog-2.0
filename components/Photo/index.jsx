@@ -4,8 +4,9 @@ import Link from "../Link"
 import "./styles.scss"
 
 const Photo = ({ src, caption, linkUrl }) => {
+  console.log(src)
   if (!src) return <p>broken image</p>
-  const baseImg = `${src.replace(/\.jpg/, "")}`
+  const baseImg = `${src.replace(/^\//, "").replace(/\.jpg/, "")}`
   const jpgTinyKey = `${baseImg}-tiny.jpg`
   const jpgTinyRetinaKey = `${baseImg}-tiny@2x.jpg`
   const jpgKey = `${baseImg}.jpg`
@@ -19,7 +20,7 @@ const Photo = ({ src, caption, linkUrl }) => {
 
   return (
     <div className="photo">
-      <Link to={linkUrl} className="photo">
+      <Link to={linkUrl}>
         <figure className="photo__figure">
           <img
             src={jpgTinyUrl}

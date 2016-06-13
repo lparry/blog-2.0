@@ -22,7 +22,12 @@ function lineIsFlickrImage(line) {
 }
 
 function extractPhotoSrc(line) {
-  return (line.match(/src="([^"]+)"/) || [])[1]
+  const src = (line.match(/src="([^"]+)"/) || [])[1]
+  if (src.match(/^http/)) {
+    const path = src.replace(/https?:\/\/[^\/]+\//, "/")
+    return path
+  }
+  return src
 }
 
 function extractPhotoCaption(line) {
@@ -70,7 +75,6 @@ function paragraphize(memo, line, index, array) {
     const photoSrc = extractPhotoSrc(line)
     if (!photoSrc) throw new Error(`src line ${line}`)
     const caption = escapeQuotes(extractPhotoCaption(line))
-    console.log(photoSrc, caption)
     memo.push(`<Photo src="${photoSrc}" caption="${caption}" />`)
   } else {
     if (index === 0) { memo.push("<p>") }
