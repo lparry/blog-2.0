@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.responsiveImage {
+  display: inline-block;
+  margin: 0 0 20px 0;
+  img {
+    background: white;
+    padding: 1px;
+    box-shadow: 2px 2px 2px 0px #111;
+  }
+}
+
+.responsiveImage__caption {
+  margin-top: -56px;
+  font-family: 'Swanky and Moo Moo', fantasy, cursive;
+  text-decoration: none;
+  // text-shadow: 0px 0px 10px #fff;
+  color: $text-color;
+  text-shadow:  1px  1px 0.5px black,
+               -1px -1px 0.5px black,
+                1px -1px 0.5px black,
+               -1px  1px 0.5px black;
+  font-size: x-large;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: $screen-md-min) {
+  .responsiveImage {
+    margin: 0;
+  }
+  .responsiveImage__caption {
+    margin-top: 0;
+  }
+}
