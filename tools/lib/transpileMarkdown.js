@@ -70,7 +70,7 @@ function lineIsImage(line) {
   return lineIsFlickrImage(line) || lineIsOtherImage(line)
 }
 
-function paragraphize(memo, line, index, array) {
+function paragraphize(memo, line, index, lines) {
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
     const flickrDetails = extractFlickrImageDetails(line)
@@ -81,11 +81,11 @@ function paragraphize(memo, line, index, array) {
     const caption = escapeQuotes(extractPhotoCaption(line))
     memo.push(`<Photo src="${photoSrc}" caption="${caption}" />`)
   } else {
-    if (index === 0) { memo.push("<p>") }
-    if (line === "" && !lineIsImage(array[index - 1]) && !lineHasDiv(array[index - 1])) { memo.push("</p>") }
+    if (index === 0 && !lineIsImage(lines[0]) && !lineHasDiv(lines[0])) { memo.push("<p>") }
+    if (line === "" && !lineIsImage(lines[index - 1]) && !lineHasDiv(lines[index - 1])) { memo.push("</p>") }
     memo.push(line)
-    if (line === "" && !lineIsImage(array[index + 1]) && !lineHasDiv(array[index + 1])) { memo.push("<p>") }
-    if (index === (array.length - 1)) { memo.push("</p>") }
+    if (line === "" && !lineIsImage(lines[index + 1]) && !lineHasDiv(lines[index + 1])) { memo.push("<p>") }
+    if (index === (lines.length - 1) && !lineIsImage(lines[index]) && !lineHasDiv(lines[index])) { memo.push("</p>") }
   }
   return memo
 }
