@@ -6,13 +6,6 @@ import formatTag from "../../lib/formatTag"
 
 const fsP = Promise.promisify(fs.readFile)
 
-function closeImgTags(source) {
-  return source.replace(/(<img [^>]*)/g, (_match, p1) => {
-    if (p1[p1.length - 1] === "/") return p1
-    return `${p1} /`
-  })
-}
-
 function lineIsOtherImage(line) {
   return line.match(/p class="flickr-image-container"/)
 }
@@ -21,56 +14,44 @@ function lineIsFlickrImage(line) {
   return line.match(/<a [^>]*><img [^>]*src="https?:\/\/[a-z0-9]*.staticflickr.com[^>]*>/)
 }
 
-function extractPhotoSrc(line) {
-  const src = (line.match(/src="([^"]+)"/) || [])[1]
-  if (src.match(/^http/)) {
-    const path = src.replace(/https?:\/\/[^\/]+\//, "/")
-    return path
-  }
-  return src
-}
-
-function extractPhotoCaption(line) {
-  return (line.match(/<em>(.+)<\/em>/) || [])[1] ||
-         (line.match(/alt="([^"]+)"/) || [])[1] ||
-           ""
-}
-
-function extractFlickrImageId(line) {
-  return parseInt(
-    (
-      line.match(/src="https?:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/) ||
-      line.match(/src="https?:\/\/c[0-9]+.staticflickr.com\/[0-9]\/[0-9]+\/([0-9]+)_[^>]*>/)
-    )[1],
-    10)
-}
-
-function extractFlickrImageDetails(line) {
-  const doc = parseUtils.parseFragment(line)
-
-  return {
-    imagePageUrl: parseUtils.attributesOf(doc.childNodes[0]).href,
-    altTag: parseUtils.attributesOf(doc.childNodes[0].childNodes[0]).alt,
-  }
-}
-
-function replaceMarkdownLinks(line) {
-  return line.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (_, text, url) => `<a href="${url}">${text}</a>`)
-}
-
-function escapeQuotes(str) {
-  return str.replace(/"/g, "&quot;")
-}
-
-function lineHasDiv(line) {
-  return !!(line.match(/<div/))
-}
-
-function lineIsImage(line) {
-  return lineIsFlickrImage(line) || lineIsOtherImage(line)
-}
-
 function paragraphize(memo, line, index, lines) {
+  const lineHasDiv = str => !!(str.match(/<div/))
+  const lineIsImage = str => (lineIsFlickrImage(str) || lineIsOtherImage(str))
+  const lineShouldNotBeWrapped = str => (lineIsImage(str) || lineHasDiv(str) || str.match(/<h[0-9]>/) || str.match(/<p[> ]/))
+  const escapeQuotes = str => str.replace(/"/g, "&quot;")
+
+  function extractPhotoSrc(str) {
+    const src = (str.match(/src="([^"]+)"/) || [])[1]
+    if (src.match(/^http/)) {
+      const path = src.replace(/https?:\/\/[^\/]+\//, "/")
+      return path
+    }
+    return src
+  }
+
+  function extractPhotoCaption(str) {
+    return (str.match(/<em>(.+)<\/em>/) || [])[1] ||
+           (str.match(/alt="([^"]+)"/) || [])[1] ||
+             ""
+  }
+
+  function extractFlickrImageId(str) {
+    return parseInt(
+      (
+        str.match(/src="https?:\/\/farm[0-9]+.staticflickr.com\/[0-9]+\/([0-9]+)_[^>]*>/) ||
+        str.match(/src="https?:\/\/c[0-9]+.staticflickr.com\/[0-9]\/[0-9]+\/([0-9]+)_[^>]*>/)
+      )[1],
+      10)
+  }
+
+  function extractFlickrImageDetails(str) {
+    const doc = parseUtils.parseFragment(str)
+    return {
+      imagePageUrl: parseUtils.attributesOf(doc.childNodes[0]).href,
+      altTag: parseUtils.attributesOf(doc.childNodes[0].childNodes[0]).alt,
+    }
+  }
+
   if (lineIsFlickrImage(line)) {
     const flickrID = extractFlickrImageId(line)
     const flickrDetails = extractFlickrImageDetails(line)
@@ -81,35 +62,39 @@ function paragraphize(memo, line, index, lines) {
     const caption = escapeQuotes(extractPhotoCaption(line))
     memo.push(`<Photo src="${photoSrc}" caption="${caption}" />`)
   } else {
-    if (index === 0 && !lineIsImage(lines[0]) && !lineHasDiv(lines[0])) { memo.push("<p>") }
-    if (line === "" && !lineIsImage(lines[index - 1]) && !lineHasDiv(lines[index - 1])) { memo.push("</p>") }
+    if (index === 0 && !lineShouldNotBeWrapped(lines[0])) { memo.push("<p>") }
+    if (line === "" && !lineShouldNotBeWrapped(lines[index - 1])) { memo.push("</p>") }
     memo.push(line)
-    if (line === "" && !lineIsImage(lines[index + 1]) && !lineHasDiv(lines[index + 1])) { memo.push("<p>") }
-    if (index === (lines.length - 1) && !lineIsImage(lines[index]) && !lineHasDiv(lines[index])) { memo.push("</p>") }
-  }
-  return memo
-}
-
-function fixPropNames(line) {
-  return line
-    .replace(/ class=/g, " className=")
-    .replace(/ frameborder=/, " frameBorder=")
-    .replace(/allowfullscreen/, "allowFullScreen")
-    .replace(/videowrapper/, "videoWrapper")
-}
-
-function spaceFlickrImages(memo, line, index, array) {
-  if (lineIsFlickrImage(line)) {
-    if ((array[index - 1] || "").trim() !== "") memo.push("")
-    memo.push(line)
-    if ((array[index + 1] || "").trim() !== "") memo.push("")
-  } else {
-    memo.push(line)
+    if (line === "" && !lineShouldNotBeWrapped(lines[index + 1])) { memo.push("<p>") }
+    if (index === (lines.length - 1) && !lineShouldNotBeWrapped(lines[index])) { memo.push("</p>") }
   }
   return memo
 }
 
 function format(source) {
+  function replaceMarkdownLinks(line) {
+    return line.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (_, text, url) => `<a href="${url}">${text}</a>`)
+  }
+
+  function fixPropNames(line) {
+    return line
+    .replace(/ class=/g, " className=")
+    .replace(/ frameborder=/, " frameBorder=")
+    .replace(/allowfullscreen/, "allowFullScreen")
+    .replace(/videowrapper/, "videoWrapper")
+  }
+
+  function spaceFlickrImages(memo, line, index, array) {
+    if (lineIsFlickrImage(line)) {
+      if ((array[index - 1] || "").trim() !== "") memo.push("")
+      memo.push(line)
+      if ((array[index + 1] || "").trim() !== "") memo.push("")
+    } else {
+      memo.push(line)
+    }
+    return memo
+  }
+
   return source
     .split("\n")
     .map(replaceMarkdownLinks)
@@ -119,14 +104,21 @@ function format(source) {
     .join("\n")
 }
 
-const urlify = (title) => (
-  title.replace(/[^a-zA-Z0-9]+/g, "-")
-  .toLowerCase()
-  .replace(/^-/, "")
-  .replace(/-$/, "")
-)
 
 export function parseLegacyMarkdown(source) {
+  const urlify = (title) => (
+    title.replace(/[^a-zA-Z0-9]+/g, "-")
+    .toLowerCase()
+    .replace(/^-/, "")
+    .replace(/-$/, "")
+  )
+  function closeImgTags(str) {
+    return str.replace(/(<img [^>]*)/g, (_match, p1) => {
+      if (p1[p1.length - 1] === "/") return p1
+      return `${p1} /`
+    })
+  }
+
   const file = closeImgTags(source).split("\n")
   const endMeta = file.indexOf("---", 1)
   const endIntro = file.indexOf("<!-- more -->")
@@ -186,8 +178,8 @@ export function parseLegacyMarkdown(source) {
 
 const jsxify = (data) => (
   `import React from "react"
-${data.body.match(/<FlickrImageLegacy/) ? 'import FlickrImageLegacy from "../../components/FlickrImageLegacy"' : ''}
-${data.body.match(/<Photo/) ? 'import Photo from "../../components/Photo"' : ''}
+${data.body.match(/<FlickrImageLegacy/) ? "import FlickrImageLegacy from \"../../components/FlickrImageLegacy\"" : ""}
+${data.body.match(/<Photo/) ? "import Photo from \"../../components/Photo\"" : ""}
 import BlogPost from "../../components/BlogPost"
 
 export const metadata = ${JSON.stringify(data.meta, null, 2)}
