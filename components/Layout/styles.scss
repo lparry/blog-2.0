@@ -58,6 +58,19 @@ a {
   font-style: italic;
 }
 
+.quote {
+  padding: 0 50px 0 20px;
+  font-style: italic;
+}
+
+.quote-attribution {
+  margin-right: 100px;
+  text-align: right;
+  &:before {
+    content: "— ";
+  }
+}
+
 .layout {
   width: calc($screen-lg-min - 30px);
 
