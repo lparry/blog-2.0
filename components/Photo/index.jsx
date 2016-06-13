@@ -4,7 +4,6 @@ import Link from "../Link"
 import "./styles.scss"
 
 const Photo = ({ src, caption, linkUrl }) => {
-  console.log(src)
   if (!src) return <p>broken image</p>
   const baseImg = `${src.replace(/^\//, "").replace(/\.jpg/, "")}`
   const jpgTinyKey = `${baseImg}-tiny.jpg`
