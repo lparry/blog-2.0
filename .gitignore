@@ -10,3 +10,6 @@ flickr-data
 npm-debug.log.*
 cache/flickr-responsive
 cache/images-responsive
+flickr_manifest.json
+image_manifest.json
+webpackStats.json
