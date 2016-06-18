@@ -17,7 +17,11 @@ const Sidebar = () => (
   <div className="sidebar">
     <Well className="sidebar__about">
       <h3><i className="fa fa-info-circle fa-lg fa-fw"></i> About Lucas</h3>
-      <img src="http://www.lucasthenomad.com/images/avatar.jpg" />
+      <img
+        alt="avatar"
+        src="/assets/images/avatar.jpg"
+        srcSet="/assets/images/avatar.jpg 1x, /assets/images/avatar@2x.jpg 2x"
+      />
       <p>
         An account of Lucas' epic travels, exciting adventures, challenging
         misfortunes and lucky breaks. They rarely happen with to any real plan,
