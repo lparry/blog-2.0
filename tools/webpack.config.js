@@ -126,7 +126,7 @@ const appConfig = merge({}, config, {
     filename: "app.js",
   },
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: isDebug ? "cheap-module-eval-source-map" : false,
+  devtool: isDebug ? "#cheap-module-eval-source-map" : false,
   plugins: [
     ...config.plugins,
     ...(isDebug ? [] : [
