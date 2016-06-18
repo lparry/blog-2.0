@@ -123,7 +123,7 @@ const appConfig = merge({}, config, {
     module: "empty",
   },
   output: {
-    filename: "app.js",
+    filename: "app.[hash].js",
   },
   // http://webpack.github.io/docs/configuration.html#devtool
   devtool: isDebug ? "#cheap-module-eval-source-map" : false,
