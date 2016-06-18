@@ -126,14 +126,29 @@ const appConfig = merge({}, config, {
     filename: "app.[hash].js",
   },
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: isDebug ? "#cheap-module-eval-source-map" : false,
+  // devtool: "#cheap-module-eval-source-map",
   plugins: [
     ...config.plugins,
     ...(isDebug ? [] : [
+      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
+        minimize: true,
+        sourceMap: false,
         compress: {
-          warnings: isVerbose,
+          warnings: false,
+          sequences: true,
+          collapse_vars: true,
+          properties: true,
+          dead_code: true,
+          conditionals: true,
+          evaluate: true,
+          loops: true,
+          unused: true,
+          hoist_funs: true,
+          if_return: true,
+          join_vars: true,
+          drop_console: true,
         },
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
@@ -205,16 +220,6 @@ const pagesConfig = merge({}, config, {
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
   plugins: config.plugins.concat([
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new ExtractTextPlugin("styles.css", { allChunks: true }),
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
-    function () { // eslint-disable-line func-names
-      this.plugin("done", (stats) => {
-        require("fs").writeFileSync( // eslint-disable-line global-require
-          path.join(__dirname, "..", "webpackStats.json"),
-          JSON.stringify(stats.toJson(), null, 2))
-      })
-    },
   ]),
   module: {
     loaders: [
