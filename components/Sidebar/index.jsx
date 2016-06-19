@@ -1,6 +1,7 @@
 import React from "react"
 import "./styles.scss"
 import TagCloud from "../TagCloud"
+import { TagsIcon, InfoCircle } from "../Icons"
 
 const allTags = []
 
@@ -16,7 +17,7 @@ Well.defaultProps = {
 const Sidebar = () => (
   <div className="sidebar">
     <Well className="sidebar__about">
-      <h3><i className="fa fa-info-circle fa-lg fa-fw"></i> About Lucas</h3>
+      <h3><InfoCircle /> About Lucas</h3>
       <img
         alt="avatar"
         src="/assets/images/avatar.jpg"
@@ -36,7 +37,7 @@ const Sidebar = () => (
     </Well>
 
     <Well>
-      <h3><i className="fa fa-tags fa-lg fa-fw"></i> Tags</h3>
+      <h3><TagsIcon /> Tags</h3>
       <TagCloud className="sidebar__tagBox" noTitle tags={allTags} />
     </Well>
   </div>

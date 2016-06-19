@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import Link from "../Link"
+import { ArrowLeft } from "../Icons"
 import "./styles.scss"
 
 const PreviousLink = ({ to }) => {
@@ -7,7 +8,7 @@ const PreviousLink = ({ to }) => {
   return (
     <div className="previousLink">
       <Link to={to}>
-        <i style={{ marginRight: "5px" }} className="fa fa-arrow-left fa-lg" /> Newer Stories
+        <ArrowLeft style={{ marginRight: "5px" }} /> Newer Stories
       </Link>
     </div>
   )

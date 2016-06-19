@@ -10,7 +10,7 @@ const FlickrImageLegacy = ({ linkUrl, flickrID, caption }) => {
 
   return (
     <div className="flickrImage">
-      <Link to={linkUrl} className="flickrImage">
+      <Link to={linkUrl}>
         <ResponsiveImage baseKey={baseKey} caption={caption} prefix="flickr" manifest={flickrManifest} />
       </Link>
     </div>

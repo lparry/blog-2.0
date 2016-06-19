@@ -27,6 +27,11 @@
 
   &:hover {
     color: white;
+    .navbar__icon {
+      path {
+        fill: white;
+      }
+    }
   }
 }
 
@@ -44,6 +49,19 @@
 
   &:hover {
     color: white;
+    .navbar__icon {
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+.navbar__icon {
+  filter: drop-shadow( 1px 1px 1px rgba(0,0,0,0.3));
+  margin-right: 5px;
+  path {
+    fill: #c8c8c8;
   }
 }
 

@@ -3,5 +3,9 @@
 .previousLink {
   float: left;
   margin: 40px;
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
 

@@ -20,7 +20,14 @@
   margin: 20px 0;
 
   h3 {
+    svg {
+      margin-right: 7px;
+      margin-left: 3px;
+      margin-top: 1px;
+    }
     margin-top: 0px;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -39,8 +46,15 @@
   }
 
   h3 {
+    svg {
+      margin-right: 7px;
+      margin-left: 3px;
+      margin-top: 1px;
+    }
     float: left;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
   }
 
   img {

@@ -31,7 +31,6 @@ function Html({ title, description, body }) {
           }}
         />
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Swanky+and+Moo+Moo%7CRoboto" />
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
 
         <script async src={`/${webpackStats.assetsByChunkName.main[0]}`} />

@@ -3,5 +3,9 @@
 .nextLink {
   float: right;
   margin: 40px;
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
 

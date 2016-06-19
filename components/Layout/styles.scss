@@ -8,14 +8,11 @@ html, body {
   font-family: $font-family-base;
   height: 100%;
   width: 100%;
-}
 
-a {
-  color: $link-color;
-  text-decoration: none;
-  &:hover {
-    color: $text-color;
-    text-decoration: none;
+  svg {
+    path {
+      fill: $text-color;
+    }
   }
 }
 

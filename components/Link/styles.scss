@@ -1,3 +1,20 @@
-.Link {
+@import '../variables.scss';
 
+.link {
+  color: $link-color;
+  text-decoration: none;
+  svg {
+    path {
+      fill: $link-color;
+    }
+  }
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+    svg {
+      path {
+        fill: $text-color;
+      }
+    }
+  }
 }

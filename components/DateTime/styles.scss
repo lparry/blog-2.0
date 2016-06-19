@@ -3,4 +3,9 @@
   margin-top: -15px;
   margin-left: 10px;
   margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: 5px;
+  }
 }

@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react"
+import { TagsIcon } from "../Icons"
 import Link from "../Link"
 import "./styles.scss"
 
@@ -19,7 +20,7 @@ const TagCloud = ({ noTitle, className, tags }) => {
   if (tags.length === 0) return null
   return (
     <div className={`tagCloud ${className}`}>
-      {noTitle ? null : <div className="tagCloud__title"><i className="fa fa-tags fa-lg fa-fw"></i>Tags:</div>}
+      {noTitle ? null : <div className="tagCloud__title"><TagsIcon width={22} />Tags:</div>}
       {tags.map((tag, index) => <Tag key={index} tagName={tag} />)}
     </div>
   )

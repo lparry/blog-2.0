@@ -63,5 +63,8 @@ class Link extends Component {
   }
 
 }
+Link.defaultProps = {
+  className: "link",
+}
 
 export default Link
