@@ -21,7 +21,7 @@ function Html({ title, description, body }) {
             __html: fs.readFileSync(path.resolve(__dirname, `../../build/${webpackStats.assetsByChunkName.main[1]}`), "utf8"),
           }}
         />
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo|Roboto" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo%7CRoboto" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
         <script async src={`/${webpackStats.assetsByChunkName.main[0]}`} />
       </head>

@@ -7,7 +7,7 @@ Icon.propTypes = { type: PropTypes.string.isRequired }
 
 function Navigation() {
   return (
-    <nav className="navbar" role="navigation">
+    <nav className="navbar">
       <Link className="navbar__link" to="/">
         <Icon type="globe" />Lucas The Nomad
       </Link>
