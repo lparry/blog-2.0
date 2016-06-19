@@ -6,8 +6,8 @@ import precss from "precss"
 import autoprefixer from "autoprefixer"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 
-const isDebug = !(process.argv.includes("--release") || process.argv.includes("-r"))
-const isVerbose = process.argv.includes("--verbose") || process.argv.includes("-v")
+const isDebug = !(process.env.DEPLOY || process.argv.includes("--release") || process.argv.includes("-r"))
+const isVerbose = !process.env.DEPLOY || process.argv.includes("--verbose") || process.argv.includes("-v")
 
 // sometimes babel is retarded and tries to import css instead of letting webpack do it
 require.extensions[".scss"] = () => undefined
@@ -227,7 +227,7 @@ const pagesConfig = merge({}, config, {
       ...config.module.loaders,
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css!postcss"),
+        loader: "css!postcss",
       },
     ],
   },

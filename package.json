@@ -73,8 +73,8 @@
     "clean": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/clean').default().catch(err => console.log(err.stack))\"",
     "build": "babel-node --eval \"require('babel-register');require('babel-polyfill');(require('./tools/build').default()).catch(err => console.log(err.stack))\"",
     "start": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/start').default().catch(err => console.log(err.stack))\"",
-    "deploy": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deploy').default().catch(err => console.log(err.stack))\"",
-    "deploy-staging": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deployStaging').default().catch(err => console.log(err.stack))\"",
-    "staging-deploy": "babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deployStaging').default().catch(err => console.log(err.stack))\""
+    "deploy": "DEPLOY=true babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deploy').default().catch(err => console.log(err.stack))\"",
+    "deploy-staging": "DEPLOY=true babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deployStaging').default().catch(err => console.log(err.stack))\"",
+    "staging-deploy": "DEPLOY=true babel-node --eval \"require('babel-register');require('babel-polyfill');require('./tools/deployStaging').default().catch(err => console.log(err.stack))\""
   }
 }
