@@ -107,7 +107,8 @@ function format(source) {
 
 export function parseLegacyMarkdown(source) {
   const urlify = (title) => (
-    title.replace(/[^a-zA-Z0-9]+/g, "-")
+    title.replace(/['"]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
     .toLowerCase()
     .replace(/^-/, "")
     .replace(/-$/, "")

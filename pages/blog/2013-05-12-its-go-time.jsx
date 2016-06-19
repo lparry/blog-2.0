@@ -12,7 +12,7 @@ export const metadata = {
   ],
   "travel_dates": "",
   "formattedDate": "May 12th 2013, 10:35:00 am",
-  "canonicalPath": "/2013/05/12/it-s-go-time"
+  "canonicalPath": "/2013/05/12/its-go-time"
 }
 
 export const intro = <div className="postIntro">
