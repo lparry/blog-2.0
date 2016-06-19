@@ -1,5 +1,6 @@
 import React from "react"
 import FlickrImageLegacy from "../../components/FlickrImageLegacy"
+import Link from "../../components/Link"
 
 import BlogPost from "../../components/BlogPost"
 
@@ -22,7 +23,7 @@ export const intro = <div className="postIntro">
 <FlickrImageLegacy flickrID="15419365423" linkUrl="/2015/01/03/firedrums-2014-and-san-francisco" caption="FireDrums 2014 Fire Circle" />
 
 <p>
-Way back in January at <a href="/2014/07/01/poi-love-camp/">Poi Love Camp</a> I'd asked
+Way back in January at <Link to="/2014/07/01/poi-love-camp/">Poi Love Camp</Link> I'd asked
 Jonathan Alvarez what he thought the best flow festival was during them summer
 in the USA, and he told me he thought FireDrums was number one, so I put it in
 my calendar and mostly forgot about it. Much later I realised it was only a few
@@ -35,7 +36,7 @@ export const body = <div className="postBody">
 <FlickrImageLegacy flickrID="15419365423" linkUrl="https://www.flickr.com/photos/lucasthenomad/15419365423/in/set-72157647464916314" caption="FireDrums 2014 Fire Circle" />
 
 <p>
-Way back in January at <a href="/2014/07/01/poi-love-camp/">Poi Love Camp</a> I'd asked
+Way back in January at <Link to="/2014/07/01/poi-love-camp/">Poi Love Camp</Link> I'd asked
 Jonathan Alvarez what he thought the best flow festival was during them summer
 in the USA, and he told me he thought FireDrums was number one, so I put it in
 my calendar and mostly forgot about it. Much later I realised it was only a few

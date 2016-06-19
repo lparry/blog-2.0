@@ -1,5 +1,6 @@
 import React from "react"
 import FlickrImageLegacy from "../../components/FlickrImageLegacy"
+import Link from "../../components/Link"
 
 import BlogPost from "../../components/BlogPost"
 
@@ -18,8 +19,8 @@ export const intro = <div className="postIntro">
 <FlickrImageLegacy flickrID="17568248432" linkUrl="/2015/05/13/two-years-later" caption="Roatan Sunset" />
 
 <p>
-So today marks two years since <a href="/2013/05/12/its-go-time/">I last set
-foot in Australia</a>.
+So today marks two years since <Link to="/2013/05/12/its-go-time/">I last set
+foot in Australia</Link>.
 </p>
 </div>
 
@@ -27,8 +28,8 @@ export const body = <div className="postBody">
 <FlickrImageLegacy flickrID="17568248432" linkUrl="https://www.flickr.com/photos/lucasthenomad/17568248432" caption="Roatan Sunset" />
 
 <p>
-So today marks two years since <a href="/2013/05/12/its-go-time/">I last set
-foot in Australia</a>.
+So today marks two years since <Link to="/2013/05/12/its-go-time/">I last set
+foot in Australia</Link>.
 </p>
 <p>
 I can't claim it's been two years of real travelling, since I've been stopped in
