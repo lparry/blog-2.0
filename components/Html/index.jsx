@@ -11,18 +11,29 @@ function Html({ title, description, body }) {
     <html className="no-js" lang="">
       <head>
         <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <title>{title || config.title}</title>
-        <meta name="description" content={description || config.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <meta name="description" content={description || config.description} />
+        <meta name="author" content="Lucas Parry" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:site_name" content="www.lucasthenomad.com" />
+        { /* <meta property="og:url" content="" /> */ }
+        <meta property="og:title" content={title || config.title} />
+        <meta property="og:description" content={description || config.description} />
+        <meta property="og:determiner" content="a" />
+        <meta property="og:type" content="blog" />
+
+        <title>{title || config.title}</title>
+
         <style
           dangerouslySetInnerHTML={{
             __html: fs.readFileSync(path.resolve(__dirname, `../../build/${webpackStats.assetsByChunkName.main[1]}`), "utf8"),
           }}
         />
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo%7CRoboto" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Swanky+and+Moo+Moo%7CRoboto" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
+
         <script async src={`/${webpackStats.assetsByChunkName.main[0]}`} />
       </head>
       <body>
