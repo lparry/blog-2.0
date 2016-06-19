@@ -37,6 +37,14 @@ export default task(async function deploy() {
 
   await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
+
+  // double build because there seems to be an ordering issue and the first
+    // build refers to old JS hashes. I should fix this
+  process.argv.push("--release")
+  await build()
+
+  await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
+    .catch(error => { console.log(error); throw error })
   //
   // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
   //   .catch(error => { console.log(error); throw error })
