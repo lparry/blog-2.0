@@ -45,10 +45,14 @@ class Link extends Component {
           search: this.props.state,
         })
       } else {
-        Location.push({
-          pathname: link.pathname,
-          search: link.search,
-        })
+        if (link.host === window.location.host) {
+          Location.push({
+            pathname: link.pathname,
+            search: link.search,
+          })
+        } else {
+          window.location = link.href
+        }
       }
     }
   };

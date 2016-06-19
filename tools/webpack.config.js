@@ -7,7 +7,7 @@ import autoprefixer from "autoprefixer"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 
 const isDebug = !(process.env.DEPLOY || process.argv.includes("--release") || process.argv.includes("-r"))
-const isVerbose = !process.env.DEPLOY || process.argv.includes("--verbose") || process.argv.includes("-v")
+const isVerbose = process.argv.includes("--verbose") || process.argv.includes("-v")
 
 // sometimes babel is retarded and tries to import css instead of letting webpack do it
 require.extensions[".scss"] = () => undefined
@@ -123,14 +123,13 @@ const appConfig = merge({}, config, {
     module: "empty",
   },
   output: {
-    filename: "app.[hash].js",
+    filename: isDebug ? "app.js" : "app.[hash].js",
   },
   // http://webpack.github.io/docs/configuration.html#devtool
   // devtool: "#cheap-module-eval-source-map",
   plugins: [
     ...config.plugins,
     ...(isDebug ? [] : [
-      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         minimize: true,
