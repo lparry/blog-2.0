@@ -1,4 +1,5 @@
 import GitRepo from "git-repository"
+import Promise from "bluebird"
 import task from "./lib/task"
 import build from "./build"
 import path from "path"
