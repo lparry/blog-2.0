@@ -36,9 +36,9 @@ export default task(async function deploy() {
   childProcess.execAsync("echo 'www.lucasthenomad.com' > CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
 
-  childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
-    .catch(error => { console.log(error); throw error })
-
+  // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
+  //   .catch(error => { console.log(error); throw error })
+  //
   // Push the contents of the build folder to the remote server via Git
   await repo.add("--all .")
   await repo.commit(`Update ${new Date().toISOString()}`)
