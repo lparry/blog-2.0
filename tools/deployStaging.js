@@ -1,7 +1,7 @@
 import GitRepo from "git-repository"
 import Promise from "bluebird"
 import task from "./lib/task"
-import build from "./build"
+import doubleBuild from "./doubleBuild"
 import path from "path"
 import childProcess from "child_process"
 Promise.promisifyAll(childProcess)
@@ -33,19 +33,11 @@ export default task(async function deploy() {
   // Build the project in RELEASE mode which
   // generates optimized and minimized bundles
   process.argv.push("--release")
-  await build()
+  await doubleBuild()
 
   await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
 
-  // double build because there seems to be an ordering issue and the first
-    // build refers to old JS hashes. I should fix this
-  process.argv.push("--release")
-  await build()
-
-  await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
-    .catch(error => { console.log(error); throw error })
-  //
   // childProcess.execAsync("npm run gulp", { cwd: path.resolve(__dirname, "..") })
   //   .catch(error => { console.log(error); throw error })
 
