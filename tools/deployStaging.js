@@ -1,7 +1,7 @@
 import GitRepo from "git-repository"
 import Promise from "bluebird"
 import task from "./lib/task"
-import doubleBuild from "./doubleBuild"
+import build from "./build"
 import path from "path"
 import childProcess from "child_process"
 Promise.promisifyAll(childProcess)
@@ -33,7 +33,8 @@ export default task(async function deploy() {
   // Build the project in RELEASE mode which
   // generates optimized and minimized bundles
   process.argv.push("--release")
-  await doubleBuild()
+  await build()
+  await build()
 
   await childProcess.execAsync("rm -f CNAME", { cwd: path.resolve(__dirname, "../build") })
     .catch(error => { console.log(error); throw error })
